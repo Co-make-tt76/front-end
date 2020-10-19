@@ -5,7 +5,11 @@ import {Form, Button, Label, Input, FormGroup, Col, Row} from 'reactstrap'
 
 export default function Login() {
    const { register, handleSubmit, errors, reset } = useForm({ 
-      mode: "onBlur", 
+      mode: "onBlur",
+      defaultValues: { 
+         email: "", 
+         password:""
+      } 
     });
   const onSubmit = (data) => { 
     

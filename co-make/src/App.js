@@ -8,14 +8,14 @@ import Login from './components/Login';
 import Register from './components/Register';
 import AddNewIssue from './components/AddNewIssue';
 
+
+
 function App() {
 	return (
 		<div className="App">
 			<NavBar />
 			<p>HELLO CO-MAKE TEAM</p>
 			
-			
-
 			<div className='routes'>
 				<Switch>
 					<Route exact path={["/", "/issues"]} component={IssuesList} />

@@ -1,19 +1,30 @@
-import React from 'react';
-import { Link } from 'react-router-dom'
-import {
-	Navbar,
-	Nav,
-	NavItem,
-	NavLink,
-	NavbarText
-} from 'reactstrap';
+import React, {useState} from 'react';
 import { useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom'
+import LoginDropDown from './LoginDropDown'
+import {
+    Collapse,
+    Navbar,
+    NavbarToggler,
+    NavbarBrand,
+    Nav,
+    NavItem,
+    NavLink,
+    UncontrolledDropdown,
+    DropdownToggle,
+    DropdownMenu,
+    DropdownItem,
+    NavbarText
+  } from "reactstrap";
 
 
 
 export default function NavBar() {
-
+	const [isOpen, setIsOpen] = useState(false);
+	const toggle = () => setIsOpen(!isOpen);
 	const { push } = useHistory();
+
+
 
 	const handleSignOut = e => {
 		e.preventDefault();
@@ -23,10 +34,12 @@ export default function NavBar() {
 	return (
 		<div>
 			<Navbar color="dark" dark expand="md">
-			<NavbarText>Co-Make</NavbarText>
-				<Nav className="ml-auto" navbar>
+			<NavbarBrand href="/issues">CO|MAKE</NavbarBrand>
+          <NavbarToggler onClick={toggle} />
+          <Collapse isOpen={isOpen} navbar>
+          <Nav className="ml-auto" navbar>
 					<NavItem>
-						<NavLink tag={Link} to='/login'>Login</NavLink>
+						<LoginDropDown />
 					</NavItem>
 					<NavItem>
 						<NavLink tag={Link} to='/issues'>Issues</NavLink>
@@ -38,8 +51,8 @@ export default function NavBar() {
 						<NavLink tag={Link} onClick={handleSignOut}>Sign Out</NavLink>
 					</NavItem>
 				</Nav>
-
-			</Navbar>
+          </Collapse>
+        </Navbar>
 		</div>
 	);
 }

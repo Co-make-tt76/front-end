@@ -16,7 +16,7 @@ const LoginRegisterTab = (props) => {
       <Nav tabs>
         <NavItem>
           <NavLink
-            style={{cursor: 'pointer'}}
+            style={{cursor: 'pointer', textDecoration: 'none', color:'black'}}
             className={classnames({ active: activeTab === '1' })}
             onClick={() => { toggle('1'); }}
           >
@@ -25,7 +25,7 @@ const LoginRegisterTab = (props) => {
         </NavItem>
         <NavItem>
           <NavLink
-            style={{cursor: 'pointer'}}
+            style={{cursor: 'pointer' , textDecoration: 'none', color:'black'}}
             className={classnames({ active: activeTab === '2' })}
             onClick={() => { toggle('2'); }}
           >
