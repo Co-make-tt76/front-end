@@ -13,7 +13,7 @@ export default function Issue(props) {
          <Card>
             <CardBody className='card-body'>
                <CardText>Report: {issue.report}</CardText>
-               <CardText>Proposed Solution: {issue.proposedSolution}</CardText>
+               <CardText>Proposed Solution: TESTING TESTING {issue.proposedSolution}</CardText>
                <div className='big-location-container'>
                   <CardTitle className='location'>Location:</CardTitle>
                   <div className='location-container'>
