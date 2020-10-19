@@ -11,7 +11,7 @@ export default function Issue(props) {
    return (
       <div className='issue-container'>
          <Card>
-            <CardBody>
+            <CardBody className='card-body'>
                <CardText>Report: {issue.report}</CardText>
                <CardText>Proposed Solution: {issue.proposedSolution}</CardText>
                <div className='big-location-container'>
