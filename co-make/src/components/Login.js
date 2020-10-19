@@ -48,7 +48,7 @@ export default function Login() {
           <ErrorMessage errors={errors} name="password" />
       </FormGroup>
 
-      <Button type="submit" color="primary">Sign Up</Button>
+      <Button type="submit" color="primary">Sign In</Button>
       
     </Form>
     </div>
