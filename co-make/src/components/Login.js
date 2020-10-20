@@ -7,7 +7,8 @@ import axios from 'axios';
 const loginPost = (user) => { 
   axios.post('https://comake-backend-tt76.herokuapp.com/auth/login', user)
   .then((res) => { 
-    console.log(res)
+    window.localStorage.setItem('token', res.data.token)
+    
   })
   .catch((error) => { 
     console.log("There was an error logging into the server", error)

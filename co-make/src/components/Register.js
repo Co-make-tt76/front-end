@@ -140,7 +140,7 @@ export default function Register() {
         type="tel" 
         placeholder="Phone number" 
         name="phone"
-        innerRef={register}
+        innerRef={register({maxLength: 10})}
         />
       </FormGroup>
 
