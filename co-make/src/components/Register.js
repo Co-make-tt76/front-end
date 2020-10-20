@@ -2,27 +2,60 @@ import React, { useRef }from 'react';
 import { useForm } from 'react-hook-form';
 import { ErrorMessage } from '@hookform/error-message';
 import {Form, Button, Label, Input, FormGroup, Col, Row} from 'reactstrap'
+import axios from 'axios'
+
+
+
+
 
 export default function Register() {
    const { register, handleSubmit, errors, reset, watch } = useForm({ 
-      mode: "onBlur", 
-      
+      mode: "onBlur",
+
     });
+
    const password = useRef({});
   password.current = watch("password", "");
 
+  const postNewUser = (newUser) => { 
+    axios.post("https://comake-backend-tt76.herokuapp.com/auth/register", newUser)
+    .then((response) => { 
+      console.log(response)
+    })
+    .catch((error) => { 
+      console.log("There was an error creating the user", error)
+    })
+
+  }
+
+
+
 
   const onSubmit = (data) => { 
+    const zip = parseInt(data.zip_code, 10)
+    const phone = parseInt(data.phone, 10)
     
-    console.log(data)
+    const newUser = { 
+      first_name: data.first_name,
+      email: data.email,
+      last_name: data.last_name,
+      password: data.password,
+      role: "user",
+      phone: phone,
+      street_address: data.street_address,
+      city: data.city,
+      state: data.state,
+      zip_code: zip
+    }
+
+    postNewUser(newUser)
     reset()
   }
-  console.log("MY ERRORS FROM REG FORM =>", errors)
     
 
 
    return (
-   <div className='auth-form-container  shadow' >
+    <div className='auth-form-container  shadow' >
     
     <Form onSubmit={handleSubmit(onSubmit)}>
       <Row form>
@@ -100,16 +133,63 @@ export default function Register() {
       </FormGroup>
       </Col>
     </Row>
-
+  
       <FormGroup>
-        <Label for="phone_number" >Phone Number</Label>
+        <Label for="phone" >Phone Number</Label>
         <Input 
         type="tel" 
-        placeholder="Mobile number" 
-        name="phone_number"
+        placeholder="Phone number" 
+        name="phone"
+        innerRef={register({maxLength: 10})}
+        />
+      </FormGroup>
+
+      <FormGroup>
+        <Label for="street_address" >Street Address</Label>
+        <Input 
+        type="text" 
+        placeholder="Street Address" 
+        name="street_address"
         innerRef={register}
         />
       </FormGroup>
+    <Row>
+    <Col md={5}>
+      <FormGroup>
+        <Label for="city" >City</Label>
+        <Input 
+        type="text" 
+        placeholder="City" 
+        name="city"
+        innerRef={register}
+        />
+      </FormGroup>
+    </Col>
+    <Col md={3}>
+      <FormGroup>
+        <Label for="state" >State</Label>
+        <Input 
+        type="text" 
+        placeholder="CA" 
+        name="state"
+        innerRef={register({
+          max: 2
+        })}
+        />
+      </FormGroup>
+    </Col>
+    <Col md={4}> 
+      <FormGroup>
+        <Label for="zip_code" >Zip Code</Label>
+        <Input 
+        type="number" 
+        placeholder="Zip" 
+        name="zip_code"
+        innerRef={register}
+        />
+      </FormGroup>
+    </Col> 
+    </Row> 
 
       <Button type="submit" color="primary">Sign Up</Button>
       
