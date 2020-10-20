@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import React, { useEffect } from 'react';
 import Issue from './Issue';
 import { connect } from 'react-redux';
+import { fetchIssues } from '../store/actions/fetchIssuesAct';
 
 function IssuesList(props) {
 
@@ -17,6 +17,14 @@ function IssuesList(props) {
    //          console.log(err)
    //       })
    // },[setIssues])
+
+   useEffect(() => {
+      fetchIssues()
+   }, []);
+
+   const upvote = e => {
+      e.preventDefault()
+   }
 
    // const upvote = issueId => {
    //    setIssues(
@@ -43,8 +51,8 @@ function IssuesList(props) {
 
 const mapStateToProps = (state) => {
    return {
-      issues: state.issues
+      issues: state.fetchIssuesState.issues
    }
 }
 
-export default connect(mapStateToProps, {})(IssuesList);
+export default connect(mapStateToProps, { fetchIssues })(IssuesList);
