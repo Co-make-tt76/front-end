@@ -16,7 +16,7 @@ export default function Login() {
     console.log(data)
     reset()
   }
-  console.log("MY ERRORS FROM REG FORM=>", errors)
+  //console.log("MY ERRORS FROM LOG FORM=>", errors)
     
 
 

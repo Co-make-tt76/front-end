@@ -33,19 +33,19 @@ export default function Register() {
 
 
   const onSubmit = (data) => { 
-    let zip = parseInt(data.zip_code, 10)
-    let phone = parseInt(data.phone, 10)
-    let newUser = { 
-      "first_name": data.first_name,
-      "last_name": data.last_name,
-      "email": data.email,
-      "password": data.password,
-      "role": "user",
-      "phone": phone,
-      "street_address": data.street_address,
-      "city": data.city,
-      "state": data.state,
-      "zip_code": zip
+    const zip = parseInt(data.zip_code, 10)
+    const phone = parseInt(data.phone, 10)
+    const newUser = { 
+      first_name: data.first_name,
+      last_name: data.last_name,
+      email: data.email,
+      password: data.password,
+      role: "user",
+      phone: phone,
+      street_address: data.street_address,
+      city: data.city,
+      state: data.state,
+      zip_code: zip
 
     }
 
@@ -53,7 +53,6 @@ export default function Register() {
     console.log(newUser)
     reset()
   }
-  console.log("MY ERRORS FROM REG FORM =>", errors)
     
 
 
