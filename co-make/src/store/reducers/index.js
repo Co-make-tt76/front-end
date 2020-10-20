@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
-import { fetchIssuesReducer as fetchIssuesState } from './fetchIssuesReducer';
-import { changeIssueReducer as changeIssueState } from './changeIssueReducer';
+import { issuesReducer as issuesState } from './issuesReducer';
+import { userReducer as userState } from './userReducer';
 
 export const rootReducer = combineReducers({
-   fetchIssuesState,
-   changeIssueState
+   issuesState,
+   userState
 })

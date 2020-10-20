@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import Issue from './Issue';
 import { connect } from 'react-redux';
-import { fetchIssues } from '../store/actions/fetchIssuesAct';
+import { fetchIssues } from '../store/actions/issuesActions';
 
 function IssuesList(props) {
 
@@ -22,10 +22,6 @@ function IssuesList(props) {
       fetchIssues()
    }, []);
 
-   const upvote = e => {
-      e.preventDefault()
-   }
-
    // const upvote = issueId => {
    //    setIssues(
    //       issues.map(issue => {
@@ -42,7 +38,7 @@ function IssuesList(props) {
    return (
       <div className='issues-list-container'>
          {issues.map((issue) => (
-               <Issue issue={issue} upvote={() => upvote(issue.id)} key={issue.id}/>
+               <Issue issue={issue} key={issue.id}/>
             
          ))}
       </div>
@@ -51,7 +47,7 @@ function IssuesList(props) {
 
 const mapStateToProps = (state) => {
    return {
-      issues: state.fetchIssuesState.issues
+      issues: state.issuesState.issues
    }
 }
 

@@ -1,4 +1,4 @@
-import { FETCH_ISSUES_START } from '../variables';
+import { FETCH_ISSUES_START, UPVOTE_ISSUE } from '../variables';
 
 const mockData = {
    issuesListIsLoading: false,
@@ -35,13 +35,25 @@ const mockData = {
    }
 ]};
 
-export const fetchIssuesReducer = (state = mockData, action) => {
+export const issuesReducer = (state = mockData, action) => {
    switch (action.type) {
       case FETCH_ISSUES_START: 
          return {
             ...state,
             issuesListIsLoading: true
          };
+      case UPVOTE_ISSUE: 
+      return {
+         ...state,
+         issues: state.issues.map(issue => {
+            if (issue.id = action.payload) {
+               const upvotes = issue.upvoteCount;
+               return { ...issue, upvoteCount : upvotes + 1 }
+            } else {
+               return issue
+            }
+         })
+      }
       default:
          return state;
    }
