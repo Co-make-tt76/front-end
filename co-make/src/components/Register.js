@@ -1,19 +1,27 @@
-import React, { useRef }from 'react';
+import React, { useRef, useState }from 'react';
 import { useForm } from 'react-hook-form';
 import { ErrorMessage } from '@hookform/error-message';
 import {Form, Button, Label, Input, FormGroup, Col, Row} from 'reactstrap'
 
+
+
+
+
 export default function Register() {
-   const { register, handleSubmit, errors, reset, watch } = useForm({ 
-      mode: "onBlur", 
+   const { register, handleSubmit, errors, reset, watch, setValue } = useForm({ 
+      mode: "onBlur",
+      
       
     });
+
+    
+
    const password = useRef({});
   password.current = watch("password", "");
 
 
   const onSubmit = (data) => { 
-    
+
     console.log(data)
     reset()
   }
@@ -22,7 +30,7 @@ export default function Register() {
 
 
    return (
-   <div className='auth-form-container  shadow' >
+    <div className='auth-form-container  shadow' >
     
     <Form onSubmit={handleSubmit(onSubmit)}>
       <Row form>
@@ -100,18 +108,65 @@ export default function Register() {
       </FormGroup>
       </Col>
     </Row>
-
+  
       <FormGroup>
-        <Label for="phone_number" >Phone Number</Label>
+        <Label for="phone" >Phone Number</Label>
         <Input 
         type="tel" 
-        placeholder="Mobile number" 
-        name="phone_number"
+        placeholder="Phone number" 
+        name="phone"
         innerRef={register}
         />
       </FormGroup>
 
-      <Button type="submit" color="primary">Sign Up</Button>
+      <FormGroup>
+        <Label for="street_address" >Street Address</Label>
+        <Input 
+        type="text" 
+        placeholder="Street Address" 
+        name="street_address"
+        innerRef={register}
+        />
+      </FormGroup>
+    <Row>
+    <Col md={5}>
+      <FormGroup>
+        <Label for="city" >City</Label>
+        <Input 
+        type="text" 
+        placeholder="City" 
+        name="city"
+        innerRef={register}
+        />
+      </FormGroup>
+    </Col>
+    <Col md={3}>
+      <FormGroup>
+        <Label for="state" >State</Label>
+        <Input 
+        type="text" 
+        placeholder="CA" 
+        name="state"
+        innerRef={register({
+          max: 2
+        })}
+        />
+      </FormGroup>
+    </Col>
+    <Col md={4}> 
+      <FormGroup>
+        <Label for="zip_code" >Zip Code</Label>
+        <Input 
+        type="number" 
+        placeholder="Zip" 
+        name="zip_code"
+        innerRef={register}
+        />
+      </FormGroup>
+    </Col> 
+    </Row> 
+
+      <Button type="submit" color="primary" onClick={() => setValue("role", "Grace")}>Sign Up</Button>
       
     </Form>
     </div>
