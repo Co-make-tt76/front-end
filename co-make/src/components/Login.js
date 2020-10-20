@@ -1,7 +1,7 @@
-import React, { useRef }from 'react';
+import React from 'react';
 import { useForm } from 'react-hook-form';
 import { ErrorMessage } from '@hookform/error-message';
-import {Form, Button, Label, Input, FormGroup, Col, Row} from 'reactstrap'
+import {Form, Button, Label, Input, FormGroup } from 'reactstrap'
 
 export default function Login() {
    const { register, handleSubmit, errors, reset } = useForm({ 

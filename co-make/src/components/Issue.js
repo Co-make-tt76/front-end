@@ -1,7 +1,7 @@
 import React from 'react';
 import {
    Card, CardText, CardBody,
-   CardTitle, CardSubtitle, Button
+   CardTitle, Button
  } from 'reactstrap';
 
 export default function Issue(props) {
