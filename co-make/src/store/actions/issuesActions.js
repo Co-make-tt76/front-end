@@ -14,5 +14,5 @@ export const fetchIssues = () => (dispatch) => {
 }
 
 export const upvoteIssue = (issue) => (dispatch) => {
-   dispatch({ type : UPVOTE_ISSUE, payload: issue.id })
+   dispatch({ type : UPVOTE_ISSUE, payload: issue })
 } 
