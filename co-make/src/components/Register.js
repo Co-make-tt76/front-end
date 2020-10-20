@@ -1,4 +1,4 @@
-import React, { useRef, useState }from 'react';
+import React, { useRef }from 'react';
 import { useForm } from 'react-hook-form';
 import { ErrorMessage } from '@hookform/error-message';
 import {Form, Button, Label, Input, FormGroup, Col, Row} from 'reactstrap'
@@ -35,6 +35,7 @@ export default function Register() {
   const onSubmit = (data) => { 
     const zip = parseInt(data.zip_code, 10)
     const phone = parseInt(data.phone, 10)
+    
     const newUser = { 
       first_name: data.first_name,
       last_name: data.last_name,
@@ -50,7 +51,7 @@ export default function Register() {
     }
 
 
-    console.log(newUser)
+    postNewUser(newUser)
     reset()
   }
     
