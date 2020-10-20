@@ -4,53 +4,48 @@ import { ErrorMessage } from '@hookform/error-message';
 import axios from 'axios'
 import { useParams, useHistory } from 'react-router-dom'
 
-const initialNewForm = {
-    firstName: '',
-    lastName: '',
-    report: '',
-    proposedSolution: '',
-    solution: '',
-    incidentLocation: '',
-    specialInstructions: '',
-    city: '',
-    state: '',
-    zip: '',
-    upvoteCount: 0,
-    comments: []
-}
 
 export default function EditIssue (props) {
-    const [currentData, setCurrentData] = props;
-    const [newForm, setNewForm] = useState(initialNewForm);
+    // const [currentData, setCurrentData] = props;
+    // const [newForm, setNewForm] = useState(initialNewForm);
     const { id } = useParams();
     const { push } = useHistory();
+    const { register, handleSubmit, errors, reset } = useForm({ 
+        mode: "onBlur",
+        defaultValues: { 
+            firstName: '',
+            lastName: '',
+            report: '',
+            proposedSolution: '',
+            solution: '',
+            incidentLocation: '',
+            specialInstructions: '',
+            city: '',
+            state: '',
+            zip: '',
+            upvoteCount: 0,
+            comments: []
+        } 
+      });
 
-    useEffect(() => {
+    useEffect((data) => {
         axios.get(`fakeurl/${id}`)
-            .then(res => setNewForm(res.data))
+            .then(res => console.log(data))
             .catch(err => console.log(err))
       }, [id])
 
-    const onChange = evt => {
-        const { name, value } = evt.target;
-        setNewForm({...newForm, [name]: value})
-    }
+    // const onChange = evt => {
+    //     const { name, value } = evt.target;
+    //     setNewForm({...newForm, [name]: value})
+    // }
 
-    const onSubmit = evt => { 
+    const onSubmit = (data) => { 
         e.preventDefault();
+        const newForm = data;
         axios.put(`fakeurl/${id}`, newForm)
-        .then(res => {
-            setCurrentData(
-                currentData.map((data) => {
-                    if(data.id === id){
-                        return newForm
-                    } else {
-                        return data
-                    }
-                })
-            )
-            push('/')
-        })
+        .then(res => console.log(res))
+        .catch(err => console.log(err))
+        push('/')
     }
     return (
         <div className='issues-list-container'>
