@@ -3,10 +3,13 @@ import {
    Card, CardText, CardBody,
    CardTitle, CardSubtitle, Button
  } from 'reactstrap';
+ import EditIssue from './EditIssue'
+ import {useHistory} from 'react-router-dom'
 
 export default function Issue(props) {
 
    const { issue, upvote } = props;
+   const { push } = useHistory()
 
    return (
       <div className='issue-container'>
@@ -21,7 +24,7 @@ export default function Issue(props) {
                      <p>{issue.city}, {issue.state} {issue.zip}</p>
                   </div>
                </div>
-               <Button className='edit-button'>Edit</Button>
+               <Button className='edit-button' onClick={() => push('/editIssue')}>Edit</Button>
                <div className='upvote-container'>
                   <Button className='upvote-button' onClick={upvote}>Upvote</Button>
                   <p>{issue.upvoteCount}</p>
