@@ -46,7 +46,7 @@ export const issuesReducer = (state = mockData, action) => {
       return {
          ...state,
          issues: state.issues.map(issue => {
-            if (issue.id = action.payload) {
+            if (issue.id === action.payload.id) {
                const upvotes = issue.upvoteCount;
                return { ...issue, upvoteCount : upvotes + 1 }
             } else {

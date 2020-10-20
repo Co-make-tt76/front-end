@@ -4,7 +4,7 @@ import {
    CardTitle, Button
  } from 'reactstrap';
 import { connect } from 'react-redux';
-import { upvoteIssue as upvote} from '../store/actions/userActions'
+import { upvoteIssue as upvote} from '../store/actions/issuesActions'
 
 function Issue(props) {
 
