@@ -3,34 +3,38 @@ import { Col, Row, Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import { ErrorMessage } from '@hookform/error-message';
 import axios from 'axios'
 import { useParams, useHistory } from 'react-router-dom'
+import * as yup from 'yup'
+const schema = yup.object().shape({
+    //tests will go here
+  });
 
+const initialNewForm = {
+    firstName: '',
+    lastName: '',
+    report: '',
+    proposedSolution: '',
+    solution: '',
+    incidentLocation: '',
+    specialInstructions: '',
+    city: '',
+    state: '',
+    zip: '',
+    upvoteCount: 0,
+    comments: []
+}
 
 export default function EditIssue (props) {
-    // const [currentData, setCurrentData] = props;
-    // const [newForm, setNewForm] = useState(initialNewForm);
+    const [currentData, setCurrentData] = props;
+    const [newForm, setNewForm] = useState(initialNewForm);
     const { id } = useParams();
     const { push } = useHistory();
-    const { register, handleSubmit, errors, reset } = useForm({ 
-        mode: "onBlur",
-        defaultValues: { 
-            firstName: '',
-            lastName: '',
-            report: '',
-            proposedSolution: '',
-            solution: '',
-            incidentLocation: '',
-            specialInstructions: '',
-            city: '',
-            state: '',
-            zip: '',
-            upvoteCount: 0,
-            comments: []
-        } 
+    const { register, handleSubmit, errors, reset  } = useForm({
+        resolver: yupResolver(schema),
       });
-
-    useEffect((data) => {
+    
+    useEffect(() => {
         axios.get(`fakeurl/${id}`)
-            .then(res => console.log(data))
+            .then(res => setNewForm(res.data))
             .catch(err => console.log(err))
       }, [id])
 
@@ -39,13 +43,21 @@ export default function EditIssue (props) {
     //     setNewForm({...newForm, [name]: value})
     // }
 
-    const onSubmit = (data) => { 
+    const onSubmit = evt => { 
         e.preventDefault();
-        const newForm = data;
         axios.put(`fakeurl/${id}`, newForm)
-        .then(res => console.log(res))
-        .catch(err => console.log(err))
-        push('/')
+        .then(res => {
+            setCurrentData(
+                currentData.map((data) => {
+                    if(data.id === id){
+                        return newForm
+                    } else {
+                        return data
+                    }
+                })
+            )
+            push('/')
+        })
     }
     return (
         <div className='issues-list-container'>

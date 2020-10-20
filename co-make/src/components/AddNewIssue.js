@@ -5,7 +5,7 @@ import { useForm } from 'react-hook-form'
 import axios from 'axios'
 
 export default function AddNewIssue(props){
-    const { register, handleSubmit, errors, reset, onChange } = useForm({ 
+    const { register, handleSubmit, errors, reset } = useForm({ 
         mode: "onBlur",
         defaultValues: { 
             firstName: '',
@@ -23,18 +23,18 @@ export default function AddNewIssue(props){
         } 
       });
 
-    const postIssue = (data) =>{axios.post('fakeurl', data)
-      .then(res => {
-        console.log(res)
-      })
-      .catch(err => {
-        console.log(err)
-      })}
+    // const postIssue = (data) =>{axios.post('fakeurl', data)
+    //   .then(res => {
+    //     console.log(res)
+    //   })
+    //   .catch(err => {
+    //     console.log(err)
+    //   })}
     
 
     const onSubmit = (data) => { 
         console.log(data)
-        postIssue(data)
+        // postIssue(data)
         reset()
     }
 
