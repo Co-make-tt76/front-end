@@ -2,6 +2,17 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import { ErrorMessage } from '@hookform/error-message';
 import {Form, Button, Label, Input, FormGroup, Col, Row} from 'reactstrap'
+import axios from 'axios';
+
+const loginPost = (user) => { 
+  axios.post('https://comake-backend-tt76.herokuapp.com/auth/login', user)
+  .then((res) => { 
+    console.log(res)
+  })
+  .catch((error) => { 
+    console.log("There was an error logging into the server", error)
+  })
+}
 
 export default function Login() {
    const { register, handleSubmit, errors, reset } = useForm({ 
@@ -13,7 +24,7 @@ export default function Login() {
     });
   const onSubmit = (data) => { 
     
-    console.log(data)
+    loginPost(data)
     reset()
   }
   //console.log("MY ERRORS FROM LOG FORM=>", errors)
