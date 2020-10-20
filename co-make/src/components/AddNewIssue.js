@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Col, Row, Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import { ErrorMessage } from '@hookform/error-message';
 import { useForm } from 'react-hook-form'
+import axios from 'axios'
 
 export default function AddNewIssue(props){
     const { register, handleSubmit, errors, reset } = useForm({ 
@@ -17,19 +18,25 @@ export default function AddNewIssue(props){
             city: '',
             state: '',
             zip: '',
-            upvoteCount: '0',
+            upvoteCount: 0,
             comments: []
         } 
       });
 
-      const onSubmit = (data) => { 
-        console.log(data)
-        reset()
-      }
+    // const postIssue = () =>{axios.post('fakeurl', data)
+    //   .then(res => {
+    //     console.log(res)
+    //   })
+    //   .catch(err => {
+    //     console.log(err)
+    //   })}
+    
 
-      const onClear = (data) => {
+    const onSubmit = (data) => { 
+        console.log(data)
+        // postIssue(data)
         reset()
-      }
+    }
 
     return (
         <div className='issues-list-container'>
@@ -147,7 +154,7 @@ export default function AddNewIssue(props){
                         </FormGroup>
                     </Col>
                     <Button id='issueFormButton1' onClick={handleSubmit(onSubmit)} color="primary" size="lg">Submit</Button>{' '}
-                    <Button onClick={onClear}outline color="secondary" size="lg">Clear</Button>
+                    <Button onClick={() => reset()}outline color="secondary" size="lg">Clear</Button>
                 </Row>
             </Form>
         </div>
