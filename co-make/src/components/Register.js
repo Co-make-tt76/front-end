@@ -2,13 +2,14 @@ import React, { useRef, useState }from 'react';
 import { useForm } from 'react-hook-form';
 import { ErrorMessage } from '@hookform/error-message';
 import {Form, Button, Label, Input, FormGroup, Col, Row} from 'reactstrap'
+import axios from 'axios'
 
 
 
 
 
 export default function Register() {
-   const { register, handleSubmit, errors, reset, watch, setValue } = useForm({ 
+   const { register, handleSubmit, errors, reset, watch } = useForm({ 
       mode: "onBlur",
       
       
@@ -19,10 +20,37 @@ export default function Register() {
    const password = useRef({});
   password.current = watch("password", "");
 
+  const postNewUser = (user) => { 
+    axios.post("https://comake-backend-tt76.herokuapp.com/auth/register", user)
+    .then((response) => { 
+      console.log(response)
+    })
+    .catch((error) => { 
+      console.log("There was an error creating the user", error)
+    })
+
+  }
+
 
   const onSubmit = (data) => { 
+    let zip = parseInt(data.zip_code, 10)
+    let phone = parseInt(data.phone, 10)
+    let newUser = { 
+      "first_name": data.first_name,
+      "last_name": data.last_name,
+      "email": data.email,
+      "password": data.password,
+      "role": "user",
+      "phone": phone,
+      "street_address": data.street_address,
+      "city": data.city,
+      "state": data.state,
+      "zip_code": zip
 
-    console.log(data)
+    }
+
+
+    console.log(newUser)
     reset()
   }
   console.log("MY ERRORS FROM REG FORM =>", errors)
@@ -166,7 +194,7 @@ export default function Register() {
     </Col> 
     </Row> 
 
-      <Button type="submit" color="primary" onClick={() => setValue("role", "Grace")}>Sign Up</Button>
+      <Button type="submit" color="primary">Sign Up</Button>
       
     </Form>
     </div>
