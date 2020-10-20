@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem} from 'reactstrap';
+import { Dropdown, DropdownToggle, DropdownMenu} from 'reactstrap';
 import LoginRegisterTab from './LoginRegisterTab';
 
 const LoginDropDown= (props) => {
