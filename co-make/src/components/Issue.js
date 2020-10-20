@@ -3,8 +3,10 @@ import {
    Card, CardText, CardBody,
    CardTitle, Button
  } from 'reactstrap';
+import { connect } from 'react-redux';
+import { upvoteIssue as upvote} from '../store/actions/userActions'
 
-export default function Issue(props) {
+function Issue(props) {
 
    const { issue, upvote } = props;
 
@@ -23,7 +25,7 @@ export default function Issue(props) {
                </div>
                <Button className='edit-button'>Edit</Button>
                <div className='upvote-container'>
-                  <Button className='upvote-button' onClick={upvote}>Upvote</Button>
+                  <Button className='upvote-button' onClick={() => upvote(issue)}>Upvote</Button>
                   <p>{issue.upvoteCount}</p>
                </div>
             </CardBody>
@@ -31,3 +33,6 @@ export default function Issue(props) {
       </div>
    )
 }
+
+export default connect(null, { upvote })(Issue);
+

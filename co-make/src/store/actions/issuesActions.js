@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { FETCH_ISSUES_START, FETCH_ISSUES_SUCCESS } from '../variables';
+import { FETCH_ISSUES_START, FETCH_ISSUES_SUCCESS, UPVOTE_ISSUE } from '../variables';
 
 export const fetchIssues = () => (dispatch) => {
    dispatch({ type: FETCH_ISSUES_START });
@@ -12,3 +12,7 @@ export const fetchIssues = () => (dispatch) => {
          console.log('RESPONSEERROR', err)
       })
 }
+
+export const upvoteIssue = (issue) => (dispatch) => {
+   dispatch({ type : UPVOTE_ISSUE, payload: issue.id })
+} 
