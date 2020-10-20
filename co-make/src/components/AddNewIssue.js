@@ -20,9 +20,9 @@ export default function AddNewIssue(props){
             upvoteCount: '0',
             comments: []
         } 
-      });
+    });
 
-      const onSubmit = (data) => { 
+    const onSubmit = (data) => { 
         console.log(data)
         reset()
       }
