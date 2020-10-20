@@ -11,17 +11,14 @@ import axios from 'axios'
 export default function Register() {
    const { register, handleSubmit, errors, reset, watch } = useForm({ 
       mode: "onBlur",
-      
-      
-    });
 
-    
+    });
 
    const password = useRef({});
   password.current = watch("password", "");
 
-  const postNewUser = (user) => { 
-    axios.post("https://comake-backend-tt76.herokuapp.com/auth/register", user)
+  const postNewUser = (newUser) => { 
+    axios.post("https://comake-backend-tt76.herokuapp.com/auth/register", newUser)
     .then((response) => { 
       console.log(response)
     })
@@ -32,14 +29,16 @@ export default function Register() {
   }
 
 
+
+
   const onSubmit = (data) => { 
     const zip = parseInt(data.zip_code, 10)
     const phone = parseInt(data.phone, 10)
     
     const newUser = { 
       first_name: data.first_name,
-      last_name: data.last_name,
       email: data.email,
+      last_name: data.last_name,
       password: data.password,
       role: "user",
       phone: phone,
@@ -47,9 +46,7 @@ export default function Register() {
       city: data.city,
       state: data.state,
       zip_code: zip
-
     }
-
 
     postNewUser(newUser)
     reset()
