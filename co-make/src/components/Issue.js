@@ -41,7 +41,7 @@ function Issue(props) {
             </ListGroup>
             <Button className='edit-button' onClick={() => push(`/editIssue/${issue.id}`)}>Edit</Button>
             <Button className='comment-button' onClick={() => push(`/addComment/${issue.id}`)}>Comment</Button>
-
+            </div>
             </CardBody>
          </Card>
       </div>
