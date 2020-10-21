@@ -5,7 +5,7 @@ import { fetchIssues } from '../store/actions/issuesActions';
 
 function IssuesList(props) {
 
-   const { issues, fetchIssues } = props;
+   const { issues, fetchIssues, upvoteRequestSending } = props;
 
    // useEffect(() => {
    //    axios
@@ -46,7 +46,8 @@ function IssuesList(props) {
 
 const mapStateToProps = (state) => {
    return {
-      issues: state.issuesState.issues
+      issues: state.issuesState.issues,
+      upvoteRequestSending: state.issuesState.upvoteRequestSending
    }
 }
 
