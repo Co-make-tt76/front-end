@@ -5,10 +5,12 @@ import {
 } from 'reactstrap';
 import { connect } from 'react-redux';
 import { upvoteIssue as upvote} from '../store/actions/issuesActions'
+import { useHistory } from 'react-router-dom'
 
 function Issue(props) {
 
    const { issue, upvote } = props;
+   const {push} = useHistory();
 
    return (
       <div className='issue-container'>
@@ -27,19 +29,19 @@ function Issue(props) {
                   <ListGroupItem>Dapibus ac facilisis in</ListGroupItem>
                   <ListGroupItem>Vestibulum at eros</ListGroupItem>
                </ListGroup>
+
                <Button className='edit-button'>Edit</Button>
                <div className='upvote-container'>
                <Button className='upvote-button' onClick={() => upvote(issue)}>Upvote</Button>
                   <p>{issue.upvotes}</p>
-
             <ListGroup className='comment-group'>
                <ListGroupItem>Cras justo odio</ListGroupItem>
                <ListGroupItem>Dapibus ac facilisis in</ListGroupItem>
                <ListGroupItem>Vestibulum at eros</ListGroupItem>
             </ListGroup>
-               <Button className='edit-button'>Edit</Button>               
-                  
-               </div>
+            <Button className='edit-button' onClick={() => push(`/editIssue/${issue.id}`)}>Edit</Button>
+            <Button className='comment-button' onClick={() => push(`/addComment/${issue.id}`)}>Comment</Button>
+
             </CardBody>
          </Card>
       </div>

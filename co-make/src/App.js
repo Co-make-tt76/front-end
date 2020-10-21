@@ -20,7 +20,7 @@ function App() {
 					<Route path="/login" component={() => <LoginRegisterTab tab={'2'} />} />
 					<Route path='/register' component={() => <LoginRegisterTab tab={'1'} /> } />
 					<Route path='/addIssue' component={AddNewIssue} />
-					<Route path='/editIssue' component={EditIssue} />
+					<Route path='/editIssue/:id' component={EditIssue} />
 				</Switch>
 			</div>
 			<Footer />
