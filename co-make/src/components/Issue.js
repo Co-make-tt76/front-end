@@ -21,8 +21,7 @@ function Issue(props) {
                   alt="nope"
                   src="https://43s9nl2car3y38bljk2aps69-wpengine.netdna-ssl.com/wp-content/uploads/2020/06/placeholder-300x200.png"
                   top
-               ></CardImg>
-               
+               ></CardImg>               
             <ListGroup className='comment-group'>
                <ListGroupItem>Cras justo odio</ListGroupItem>
                <ListGroupItem>Dapibus ac facilisis in</ListGroupItem>

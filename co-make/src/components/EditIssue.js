@@ -43,6 +43,10 @@ export default function EditIssue () {
         setForm({...form, [name]: value})
     }
 
+    const deleteIssue = e => {
+        e.preventDefault()
+    }
+
     const onSubmit = evt => { 
         evt.preventDefault();
         // axios.put(`https://comake-backend-tt76.herokuapp.com/issues/${id}`, form)
@@ -147,6 +151,7 @@ export default function EditIssue () {
                     </Col>
                     <Button id='issueFormButton1' onClick={onSubmit} color="primary" size="lg">Submit</Button>{' '}
                     <Button onClick={() => setForm(initialForm)}outline color="secondary" size="lg">Clear</Button>
+                    <Button id='deleteIssueButton' onClick={() => deleteIssue(id)}>Delete Issue</Button>
                 </Row>
             </Form>
         </div>

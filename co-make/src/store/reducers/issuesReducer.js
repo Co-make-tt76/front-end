@@ -1,7 +1,8 @@
-import { FETCH_ISSUES_START, FETCH_ISSUES_SUCCESS, UPVOTE_ISSUE } from '../variables';
+import { DELETE_ISSUE_START, DELETE_ISSUE_SUCCESS, FETCH_ISSUES_START, FETCH_ISSUES_SUCCESS, UPVOTE_ISSUE } from '../variables';
 
 const initialState = {
    issuesListIsLoading: false,
+   deleteRequestSending: false,
    issues: []
 }
 
@@ -29,7 +30,18 @@ export const issuesReducer = (state = initialState, action) => {
                return issue
             }
          })
-      }
+      };
+      case DELETE_ISSUE_START:
+         return {
+            ...state,
+            deleteRequestSending: true
+         };
+      case DELETE_ISSUE_SUCCESS:
+         return {
+            ...state,
+            issues: action.payload,
+            deleteRequestSending: false
+         }
       default:
          return state;
    }
