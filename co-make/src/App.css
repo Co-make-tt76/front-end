@@ -84,15 +84,18 @@
 .issue-container {
   width: 45%;
   margin: 24px 2.5%;
+
 }
 
-.issue-container .card .cardBody {
+.issue-container .card .card-body {
   padding: 8px 8px 40px;
+  border-radius: 8px;
   box-shadow: 0px 0px 7px rgba(0,0,0,.6);
 }
 
 .issue-container .card .cardtext {
   color: red;
+  
 }
 
 .issues-display {
@@ -129,7 +132,6 @@
 }
 
 .edit-button {
-  display: flex;
   position: absolute;
   bottom: 10px; 
   right: 2%;

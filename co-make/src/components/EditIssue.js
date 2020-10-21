@@ -211,9 +211,9 @@ export default function EditIssue(){
         zip_code: '',
     } 
 
-    useEffect(() => {
-        regi
-    })
+    // useEffect(() => {
+    //     regi
+    // })
 
     const putIssue = (editedIssue) => {
     // fix this with josh and trevor
