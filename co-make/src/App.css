@@ -20,8 +20,66 @@
   width: 400px;
 }
 
-.issues-list-container {
+.new-issue-container {
   margin: 32px auto;
+
+  padding: 1% 1.5% 0% 1.5%;
+  width: 80%;
+  border: 2px solid #424547;
+  border-radius: 15px;
+  /* box-shadow: 10px 10px 10px #424547; */
+}
+
+.new-issue-container h3{
+  color: #343A40;
+  padding-bottom: 1%;
+  font-size: 35px;
+}
+
+.new-issue-form-img-parent {
+  display: flex;
+  margin: 3% 0% 3% auto;
+}
+
+.new-issue-form{
+  width: 60%;
+  margin: auto;
+}
+.new-issue-form label{
+  font-size: 18px;
+}
+
+.new-issue-img{
+  width: 40%;
+  margin-bottom:1%;
+}
+
+.new-issue-img img{
+  width: 80%;
+  margin-left:5%;
+}
+
+#add-issue-submit-btn{
+  background-color: #44494d;
+  color: white;
+  margin-top: 1%;
+}
+#add-issue-submit-btn:hover{
+  background-color: white;
+  color: #44494d;
+  border-color: #44494d;
+}
+
+#add-issue-clear-btn{
+  background-color:#a8b5c0;
+  color: white;
+  border: none;
+}
+
+#add-issue-clear-btn:hover{
+  background-color:white;
+  color: #44494d;
+  border: 2px solid #44494d;
   padding: 24px 18px;
   width: 90%;
   border: 2px solid #343A40;
@@ -29,6 +87,7 @@
   box-shadow: 2px 10px 14px rgba(0,0,0,.6);
   display: flex;
   flex-wrap: wrap;
+
 }
 
 .issue-container {
@@ -90,5 +149,3 @@
 .comment-group {
   margin: 16px 0 40px;
 }
-
-
