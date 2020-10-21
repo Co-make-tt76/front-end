@@ -7,6 +7,17 @@ function IssuesList(props) {
 
    const { issues, fetchIssues } = props;
 
+   // useEffect(() => {
+   //    axios
+   //       .get('https://comake-backend-tt76.herokuapp.com/issues')
+   //       .then(res => {
+   //          console.log(res)
+   //       })
+   //       .catch(err => {
+   //          console.log(err)
+   //       })
+   // },[setIssues])
+
    useEffect(() => {
       fetchIssues()
    }, [fetchIssues]);
