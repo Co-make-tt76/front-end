@@ -7,9 +7,9 @@ const Footer = () => {
     <div>
     <footer className="footer">
     <div className="footer-text">
-      <h2>CO|MAKE</h2>
-      <p>Make your voice heard on the issues you would like to see resolved in your community.</p>
-      <p id='bold'>Be Heard Be Bold</p>
+      <h4>CO|MAKE</h4>
+      <p style={{fontSize: '14px'}}>Make your voice heard on the issues you would like to see resolved in your community.</p>
+      <p id="bold" >Be Heard Be Bold</p>
     </div>
       <div className='footer-icons'>
             <i class="fab fa-github-square fa-3x"></i>

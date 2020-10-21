@@ -150,12 +150,21 @@
 .footer {
   border: 2px solid black;
   background: #333a40;
+  font-family: "Roboto", sans-serif;
 }
 
 .footer-text {
-  border: 2px solid green;
   width: 30%;
   color: #c2cbd2;
+  text-align: start;
+  margin: 15px 10px 0 10px;
+}
+
+#bold {
+  margin: 0 0 0 10px;
+  color: whitesmoke;
+  font-weight: 900;
+  font-family: "Roboto", sans-serif;
 }
 
 .footer-icons {
@@ -173,5 +182,9 @@
   }
   .footer-icons {
     width: 80%;
+  }
+
+  .footer-text {
+    width: 50%;
   }
 }
