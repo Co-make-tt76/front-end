@@ -27,7 +27,7 @@ export default function EditIssue () {
     const { id } = useParams();
     const { push } = useHistory();
     const fetchIssue = id => {
-        axios.get(`https://comake-backend-tt76.herokuapp.com/issues/all/${id}`)
+        axios.get(`https://comake-backend-tt76.herokuapp.com/issues/${id}`)
             .then(res => {
                 setForm(res.data)
             })
@@ -36,7 +36,7 @@ export default function EditIssue () {
 
     useEffect(() => {
         fetchIssue(id)
-      }, [id])
+    }, [id])
 
     const onChange = evt => {
         const { name, value } = evt.target;
@@ -145,8 +145,8 @@ export default function EditIssue () {
                             />
                         </FormGroup>
                     </Col>
-                    <Button id='issueFormButton1' onClick={onSubmit} color="primary" size="lg">Submit</Button>{' '}
-                    <Button onClick={() => setForm(initialForm)}outline color="secondary" size="lg">Clear</Button>
+                    <Button id='issueFormButton1' onClick={onSubmit} color="primary" size="lg">Submit</Button>
+                    <Button onClick={push('/')}outline color="secondary" size="lg">Cancel</Button>
                 </Row>
             </Form>
         </div>
