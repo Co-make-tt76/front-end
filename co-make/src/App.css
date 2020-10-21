@@ -62,7 +62,8 @@
 #add-issue-submit-btn{
   background-color: #44494d;
   color: white;
-  margin-top: 1%;
+  margin: 1% auto;
+  width:90%
 }
 #add-issue-submit-btn:hover{
   background-color: white;
@@ -74,6 +75,8 @@
   background-color:#a8b5c0;
   color: white;
   border: none;
+  margin: 0% auto;
+  width:90%
 }
 
 #add-issue-clear-btn:hover{
@@ -85,7 +88,10 @@
 .issue-container {
   width: 45%;
   margin: 24px 2.5%;
+}
 
+.card{
+  width:100%;
 }
 
 .issue-container .card .card-body {
@@ -99,11 +105,17 @@
   
 }
 
+.issues-list-container{
+  display:flex;
+  flex-wrap:wrap;
+}
+
 .issues-display {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
 }
+
 
 .big-location-container {
   display: flex;
@@ -136,6 +148,12 @@
   position: absolute;
   bottom: 10px; 
   right: 2%;
+}
+
+.comment-button {
+  bottom: 10px; 
+  position: absolute;
+  left: 43%;
 }
 
 .comment-group {

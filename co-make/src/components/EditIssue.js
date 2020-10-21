@@ -66,12 +66,15 @@ export default function EditIssue(){
 
     return (
         <div className='new-issue-container'>
-            <h3>Report an Issue</h3>
+            <div>
+                <h3>Edit your Issue</h3>
+            </div>
             <div className='new-issue-form-img-parent'>
                 <div className='new-issue-form'>
                     <Form>
                         <Row form>
-                            <Col md={3}>
+                            <Col md={4}/>
+                            <Col md={4}>
                                 <FormGroup>
                                     <Label for='title'>Title of Report</Label>
                                     <Input 
@@ -85,11 +88,14 @@ export default function EditIssue(){
                                     <ErrorMessage errors={errors} name='title' />
                                 </FormGroup>
                             </Col>
-                            <Col md={9}>
+                        </Row>
+                        <Row form>
+                            <Col md={1}/>
+                            <Col md={10}>
                                 <FormGroup>
                                     <Label for='description'>Description of problem</Label>
                                     <Input 
-                                        type='text' 
+                                        type='textarea' 
                                         name='description' 
                                         invalid={errors.description ? true : false}
                                         innerRef={register({required: "A description is required and needs to be 10 characters long", minLength: 10})} 
@@ -100,7 +106,8 @@ export default function EditIssue(){
                             </Col>
                         </Row>
                         <Row form>
-                            <Col md={12}>
+                            <Col md={3}/>
+                            <Col md={3}>
                                 <FormGroup>
                                     <Label for='street_address'>Incident Location</Label>
                                     <Input 
@@ -111,9 +118,7 @@ export default function EditIssue(){
                                     />
                                 </FormGroup>
                             </Col>
-                        </Row>
-                        <Row form>
-                            <Col md={12}>
+                            <Col md={3}>
                                 <FormGroup>
                                     <Label for='address_notes'>Special Instructions</Label>
                                     <Input 
@@ -124,6 +129,9 @@ export default function EditIssue(){
                                     />
                                 </FormGroup>
                             </Col>
+                        </Row>
+                        <Row form>
+                            
                         </Row>
                         <Row form>
                             <Col md={2}/> 
@@ -170,8 +178,7 @@ export default function EditIssue(){
                             <Col md={2}/>
                         </Row>
                         <Row form>
-                            {/* DO A CALLBACK FUNCTION THAT TAKES CARE OF THE HANDLE SUBMIT AND PUSH */}
-                            <Button id='add-issue-submit-btn' onClick={handleSubmit(onSubmit)}  size="lg" block>Submit</Button>
+                            <Button id='add-issue-submit-btn' onClick={handleSubmit(onSubmit)}  size="lg" block>Confirm Changes</Button>
                             <Button id='add-issue-clear-btn' onClick={() => push('/')}outline color="secondary" size="lg" block>Cancel</Button>
                         </Row>
                     </Form>

@@ -29,16 +29,17 @@ function Issue(props) {
                   <ListGroupItem>Dapibus ac facilisis in</ListGroupItem>
                   <ListGroupItem>Vestibulum at eros</ListGroupItem>
                </ListGroup>
-               <Button className='edit-button' onClick={() => push(`/editIssue/${issue.id}`)}>Edit</Button>
-               <div className='upvote-container'>
-                  <Button className='upvote-button' onClick={() => upvote(issue)}>Upvote</Button>
-                  <p>{issue.upvotes}</p>
-               </div>
             <ListGroup className='comment-group'>
                <ListGroupItem>Cras justo odio</ListGroupItem>
                <ListGroupItem>Dapibus ac facilisis in</ListGroupItem>
                <ListGroupItem>Vestibulum at eros</ListGroupItem>
             </ListGroup>
+            <Button className='edit-button' onClick={() => push(`/editIssue/${issue.id}`)}>Edit</Button>
+            <div className='upvote-container'>
+                  <Button className='upvote-button' onClick={() => upvote(issue)}>Upvote</Button>
+                  <p>{issue.upvotes}</p>
+            </div>
+            <Button className='comment-button' onClick={() => push(`/addComment/${issue.id}`)}>Comment</Button>
             </CardBody>
          </Card>
       </div>
