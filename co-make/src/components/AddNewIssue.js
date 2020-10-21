@@ -17,7 +17,7 @@ export default function AddNewIssue(){
             state: '',
             zip_code: '',
         } 
-      });
+    });
 
     const postIssue = (newIssue) =>{axios.post('https://comake-backend-tt76.herokuapp.com/issues', newIssue)
       .then(res => {

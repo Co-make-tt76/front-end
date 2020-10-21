@@ -10,11 +10,6 @@ import {
     Nav,
     NavItem,
     NavLink,
-    UncontrolledDropdown,
-    DropdownToggle,
-    DropdownMenu,
-    DropdownItem,
-    NavbarText
   } from "reactstrap";
 
 
@@ -48,7 +43,7 @@ export default function NavBar() {
 						<NavLink tag={Link} to='/addIssue'>Add Issue</NavLink>
 					</NavItem>
 					<NavItem>
-						<NavLink tag={Link} onClick={handleSignOut}>Sign Out</NavLink>
+						<NavLink tag={Link} to='/' onClick={handleSignOut}>Sign Out</NavLink>
 					</NavItem>
 				</Nav>
           </Collapse>
