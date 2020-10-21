@@ -188,37 +188,13 @@ import { useParams } from 'react-router-dom'
 import axios from 'axios'
 
 export default function EditIssue(){
-    const initialState = { 
-        author_id: 0,
-        title: '',
-        description: '',
-        street_address: '',
-        address_notes: '',
-        city: '',
-        state: '',
-        zip_code: '',
-    } 
-    const [itemToEdit, setItemToEdit] = useState(initialState)
-    // const { id } = useParams('https://comake-backend-tt76.herokuapp.com/issues/');
-    const params = useParams()
-    console.log(params)
-    const { id } = params;
-    console.log(id)
-    const dummyData= { 
-        author_id: 3,
-        title: 'sdfdsdd',
-        description: '',
-        street_address: '',
-        address_notes: '',
-        city: '',
-        state: '',
-        zip_code: '',
-    } 
-    const { register, handleSubmit, errors, reset, setValue, control } = useForm({ 
+    const { id } = useParams()
+
+    const { register, handleSubmit, errors, reset, control } = useForm({ 
         mode: "onBlur",
         defaultValues: { 
             author_id: 0,
-            title: itemToEdit.title,
+            title: '',
             description: '',
             street_address: '',
             address_notes: '',
@@ -228,41 +204,38 @@ export default function EditIssue(){
         } 
     });
 
-    useEffect(() => {
+    const getFormData = () => { 
         axios
             .get(`https://comake-backend-tt76.herokuapp.com/issues/${id}`)
-            .then(itemToEditParam => {
-                console.log(itemToEditParam.data)
-                setItemToEdit(itemToEditParam.data)
-                
-                // setValue([
-                //     { title: itemToEdit.title },
-                //     { description: itemToEdit.description },
-                //     { street_address: itemToEdit.street_address },
-                //     { adress_notes: itemToEdit.adress_notes },
-                //     { city: itemToEdit.city },
-                //     { state: itemToEdit.state },
-                //     { zip_code: itemToEdit.zip_code },
-                // ])
+            .then(itemToEdit => {
+                reset({ 
+                    title: itemToEdit.data.title,
+                    description: itemToEdit.data.description,
+                    street_address: itemToEdit.data.street_address,
+                    address_notes: itemToEdit.data.address_notes,
+                    city: itemToEdit.data.city,
+                    state: itemToEdit.data.state,
+                    zip_code: itemToEdit.data.zip_code,
+                })
+                console.log(itemToEdit.data.title)
             })
             .catch(err => {
                 // console.log(err)
             })
+    }
+
+    useEffect(() => {
+            getFormData()
     }, [])
-    // const onChange = evt => {
-    //     const { name, value } = evt.target;
-    //     setForm({...form, [name]: value})
-    // }
 
     const putIssue = (editedIssue) => {
-    // fix this with josh and trevor
-    //     axios.put('https://comake-backend-tt76.herokuapp.com/issues/:id', editedIssue)
-    //   .then(res => {
-    //     console.log('result from API', res)
-    //   })
-    //   .catch(err => {
-    //     console.log(err)
-    //   })
+        axios.put(`https://comake-backend-tt76.herokuapp.com/issues/${id}`, editedIssue)
+      .then(res => {
+        console.log('result from API', res)
+      })
+      .catch(err => {
+        console.log(err)
+      })
     }
     
     const onSubmit = (editedIssue) => { 
@@ -279,16 +252,6 @@ export default function EditIssue(){
                     <Form>
                         <Row form>
                             <Col md={3}>
-                                <FormGroup>
-                                    <Label>
-                                    <Controller
-                                        as={<input type='text' />}
-                                        control={control}
-                                        defaultValue={itemToEdit ? itemToEdit.title : ''}
-                                        name='name'
-                                    />
-                                    </Label>
-                                </FormGroup>
                                 <FormGroup>
                                     <Label for='title'>Title of Report</Label>
                                     <Input 
