@@ -1,14 +1,15 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Col, Row, Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import { ErrorMessage } from '@hookform/error-message';
-import { useForm } from 'react-hook-form'
+import { useForm, Controller } from 'react-hook-form'
+import { useParams, useHistory } from 'react-router-dom'
 import axios from 'axios'
-import { useHistory } from 'react-router-dom'
 
-
-export default function AddNewIssue(){
+export default function EditIssue(){
+    const { id } = useParams()
     const { push } = useHistory()
-    const { register, handleSubmit, errors, reset } = useForm({ 
+
+    const { register, handleSubmit, errors, reset, control } = useForm({ 
         mode: "onBlur",
         defaultValues: { 
             author_id: 0,
@@ -22,7 +23,32 @@ export default function AddNewIssue(){
         } 
     });
 
-    const postIssue = (newIssue) =>{axios.post('https://comake-backend-tt76.herokuapp.com/issues', newIssue)
+    const getFormData = () => { 
+        axios
+            .get(`https://comake-backend-tt76.herokuapp.com/issues/${id}`)
+            .then(itemToEdit => {
+                reset({ 
+                    title: itemToEdit.data.title,
+                    description: itemToEdit.data.description,
+                    street_address: itemToEdit.data.street_address,
+                    address_notes: itemToEdit.data.address_notes,
+                    city: itemToEdit.data.city,
+                    state: itemToEdit.data.state,
+                    zip_code: itemToEdit.data.zip_code,
+                })
+                console.log(itemToEdit.data.title)
+            })
+            .catch(err => {
+                // console.log(err)
+            })
+    }
+
+    useEffect(() => {
+            getFormData()
+    }, [])
+
+    const putIssue = (editedIssue) => {
+        axios.put(`https://comake-backend-tt76.herokuapp.com/issues/${id}`, editedIssue)
       .then(res => {
         console.log('result from API', res)
       })
@@ -31,16 +57,18 @@ export default function AddNewIssue(){
       })
     }
     
-    const onSubmit = (newIssue) => { 
-        newIssue.author_id = 3
-        console.log(newIssue)
-        postIssue(newIssue)
-        push( '/')
+    const onSubmit = (editedIssue) => { 
+        editedIssue.author_id = 3
+        console.log(editedIssue)
+        putIssue(editedIssue)
+        push('/')
     }
 
     return (
         <div className='new-issue-container'>
-            <h3>Report an Issue</h3>
+            <div>
+                <h3>Edit your Issue</h3>
+            </div>
             <div className='new-issue-form-img-parent'>
                 <div className='new-issue-form'>
                     <Form>
@@ -150,8 +178,8 @@ export default function AddNewIssue(){
                             <Col md={2}/>
                         </Row>
                         <Row form>
-                            <Button id='add-issue-submit-btn' onClick={handleSubmit(onSubmit)}  size="lg" >Submit</Button>
-                            <Button id='add-issue-clear-btn' onClick={() => reset()}outline color="secondary" size="lg" block>Clear</Button>
+                            <Button id='add-issue-submit-btn' onClick={handleSubmit(onSubmit)}  size="lg" block>Confirm Changes</Button>
+                            <Button id='add-issue-clear-btn' onClick={() => push('/')}outline color="secondary" size="lg" block>Cancel</Button>
                         </Row>
                     </Form>
                 </div>

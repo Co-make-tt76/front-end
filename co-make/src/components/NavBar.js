@@ -44,6 +44,7 @@ export default function NavBar() {
 					</NavItem>
 					<NavItem>
 						<NavLink tag={Link} to='/' onClick={handleSignOut}>Sign Out</NavLink>
+						
 					</NavItem>
 				</Nav>
           </Collapse>
