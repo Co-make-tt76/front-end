@@ -2,11 +2,12 @@ import React, { useEffect, useState } from 'react';
 import { Col, Row, Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import { ErrorMessage } from '@hookform/error-message';
 import { useForm, Controller } from 'react-hook-form'
-import { useParams } from 'react-router-dom'
+import { useParams, useHistory } from 'react-router-dom'
 import axios from 'axios'
 
 export default function EditIssue(){
     const { id } = useParams()
+    const { push } = useHistory()
 
     const { register, handleSubmit, errors, reset, control } = useForm({ 
         mode: "onBlur",
@@ -60,6 +61,7 @@ export default function EditIssue(){
         editedIssue.author_id = 3
         console.log(editedIssue)
         putIssue(editedIssue)
+        push('/')
     }
 
     return (
@@ -124,7 +126,8 @@ export default function EditIssue(){
                             </Col>
                         </Row>
                         <Row form>
-                            <Col md={2}/>
+                            <Col md={2}/> 
+                            {/* centering the city, state and zip_code  */}
                             <Col md={3}>
                                 <FormGroup>
                                     <Label for='city'>City</Label>
@@ -151,7 +154,7 @@ export default function EditIssue(){
                                     <ErrorMessage errors={errors} name='state' />
                                 </FormGroup>
                             </Col>
-                            <Col md={2}>
+                            <Col md={2}> 
                                 <FormGroup>
                                     <Label for='zip_code'>Zip Code</Label>
                                     <Input 
@@ -167,8 +170,9 @@ export default function EditIssue(){
                             <Col md={2}/>
                         </Row>
                         <Row form>
+                            {/* DO A CALLBACK FUNCTION THAT TAKES CARE OF THE HANDLE SUBMIT AND PUSH */}
                             <Button id='add-issue-submit-btn' onClick={handleSubmit(onSubmit)}  size="lg" block>Submit</Button>
-                            <Button id='add-issue-clear-btn' onClick={() => reset()}outline color="secondary" size="lg" block>Clear</Button>
+                            <Button id='add-issue-clear-btn' onClick={() => push('/')}outline color="secondary" size="lg" block>Cancel</Button>
                         </Row>
                     </Form>
                 </div>
