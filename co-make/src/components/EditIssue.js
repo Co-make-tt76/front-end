@@ -61,10 +61,10 @@
 //         setNewForm(dummyData)
 //     }, [id])
 
-//     const onChange = evt => {
-//         const { name, value } = evt.target;
-//         setForm({...form, [name]: value})
-//     }
+    // const onChange = evt => {
+    //     const { name, value } = evt.target;
+    //     setForm({...form, [name]: value})
+    // }
 
 //     const onSubmit = evt => { 
 //         evt.preventDefault();
@@ -180,26 +180,30 @@
 //         </div>
 //     )
 // }
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Col, Row, Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import { ErrorMessage } from '@hookform/error-message';
-import { useForm } from 'react-hook-form'
+import { useForm, Controller } from 'react-hook-form'
+import { useParams } from 'react-router-dom'
 import axios from 'axios'
 
 export default function EditIssue(){
-    const { register, handleSubmit, errors, reset } = useForm({ 
-        mode: "onBlur",
-        defaultValues: { 
-            author_id: 0,
-            title: '',
-            description: '',
-            street_address: '',
-            address_notes: '',
-            city: '',
-            state: '',
-            zip_code: '',
-        } 
-    });
+    const initialState = { 
+        author_id: 0,
+        title: '',
+        description: '',
+        street_address: '',
+        address_notes: '',
+        city: '',
+        state: '',
+        zip_code: '',
+    } 
+    const [itemToEdit, setItemToEdit] = useState(initialState)
+    // const { id } = useParams('https://comake-backend-tt76.herokuapp.com/issues/');
+    const params = useParams()
+    console.log(params)
+    const { id } = params;
+    console.log(id)
     const dummyData= { 
         author_id: 3,
         title: 'sdfdsdd',
@@ -210,10 +214,45 @@ export default function EditIssue(){
         state: '',
         zip_code: '',
     } 
+    const { register, handleSubmit, errors, reset, setValue, control } = useForm({ 
+        mode: "onBlur",
+        defaultValues: { 
+            author_id: 0,
+            title: itemToEdit.title,
+            description: '',
+            street_address: '',
+            address_notes: '',
+            city: '',
+            state: '',
+            zip_code: '',
+        } 
+    });
 
-    // useEffect(() => {
-    //     regi
-    // })
+    useEffect(() => {
+        axios
+            .get(`https://comake-backend-tt76.herokuapp.com/issues/${id}`)
+            .then(itemToEditParam => {
+                console.log(itemToEditParam.data)
+                setItemToEdit(itemToEditParam.data)
+                
+                // setValue([
+                //     { title: itemToEdit.title },
+                //     { description: itemToEdit.description },
+                //     { street_address: itemToEdit.street_address },
+                //     { adress_notes: itemToEdit.adress_notes },
+                //     { city: itemToEdit.city },
+                //     { state: itemToEdit.state },
+                //     { zip_code: itemToEdit.zip_code },
+                // ])
+            })
+            .catch(err => {
+                // console.log(err)
+            })
+    }, [])
+    // const onChange = evt => {
+    //     const { name, value } = evt.target;
+    //     setForm({...form, [name]: value})
+    // }
 
     const putIssue = (editedIssue) => {
     // fix this with josh and trevor
@@ -241,11 +280,22 @@ export default function EditIssue(){
                         <Row form>
                             <Col md={3}>
                                 <FormGroup>
+                                    <Label>
+                                    <Controller
+                                        as={<input type='text' />}
+                                        control={control}
+                                        defaultValue={itemToEdit ? itemToEdit.title : ''}
+                                        name='name'
+                                    />
+                                    </Label>
+                                </FormGroup>
+                                <FormGroup>
                                     <Label for='title'>Title of Report</Label>
                                     <Input 
                                         type='text' 
                                         name='title' 
                                         invalid={errors.title ? true : false}
+                                        // onChange={onChange}
                                         innerRef={register({required: "A title is required"})} 
                                         placeholder='Pothole, etc.'
                                     />
