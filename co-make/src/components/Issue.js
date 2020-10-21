@@ -28,7 +28,8 @@ function Issue(props) {
                <ListGroupItem>Dapibus ac facilisis in</ListGroupItem>
                <ListGroupItem>Vestibulum at eros</ListGroupItem>
             </ListGroup>
-               <Button className='edit-button'>Edit</Button>               <div className='upvote-container'>
+               <Button className='edit-button'>Edit</Button>  
+               <div className='upvote-container'>
                   <Button className='upvote-button' onClick={() => upvote(issue)}>Upvote</Button>
                   <p>{issue.upvotes}</p>
                </div>
