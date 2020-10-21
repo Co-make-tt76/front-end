@@ -26,6 +26,7 @@
   width: 80%;
   border: 2px solid #424547;
   border-radius: 15px;
+  /* box-shadow: 10px 10px 10px #424547; */
 }
 
 .new-issue-container h3{
