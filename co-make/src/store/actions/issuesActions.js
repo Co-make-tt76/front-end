@@ -1,12 +1,12 @@
-import axios from 'axios';
+import { axiosWithAuth } from '../../utils/axiosWithAuth';
 import { FETCH_ISSUES_START, FETCH_ISSUES_SUCCESS, UPVOTE_ISSUE } from '../variables';
 
 export const fetchIssues = () => (dispatch) => {
    dispatch({ type: FETCH_ISSUES_START });
-   axios
-      .get('FAKEURL')
+   axiosWithAuth()
+      .get('/issues/all')
       .then(res => {
-         console.log('RESPONSESUCCESS', res)
+         dispatch({ type: FETCH_ISSUES_SUCCESS, payload: res.data})
       })
       .catch(err => {
          console.log('RESPONSEERROR', err)
