@@ -24,7 +24,6 @@ function Issue(props) {
                   src="https://43s9nl2car3y38bljk2aps69-wpengine.netdna-ssl.com/wp-content/uploads/2020/06/placeholder-300x200.png"
                   top
                ></CardImg>
-               
                <ListGroup className='comment-group'>
                   <ListGroupItem>Cras justo odio</ListGroupItem>
                   <ListGroupItem>Dapibus ac facilisis in</ListGroupItem>
@@ -32,6 +31,13 @@ function Issue(props) {
                </ListGroup>
                <Button className='edit-button' onClick={() => push(`/editIssue/${issue.id}`)}>Edit</Button>
                <div className='upvote-container'>
+
+            <ListGroup className='comment-group'>
+               <ListGroupItem>Cras justo odio</ListGroupItem>
+               <ListGroupItem>Dapibus ac facilisis in</ListGroupItem>
+               <ListGroupItem>Vestibulum at eros</ListGroupItem>
+            </ListGroup>
+               <Button className='edit-button'>Edit</Button>               <div className='upvote-container'>
                   <Button className='upvote-button' onClick={() => upvote(issue)}>Upvote</Button>
                   <p>{issue.upvotes}</p>
                </div>
