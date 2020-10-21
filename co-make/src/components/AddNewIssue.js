@@ -2,113 +2,93 @@ import React from 'react';
 import { Col, Row, Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import { ErrorMessage } from '@hookform/error-message';
 import { useForm } from 'react-hook-form'
+import axios from 'axios'
 
-export default function AddNewIssue(props){
+export default function AddNewIssue(){
     const { register, handleSubmit, errors, reset } = useForm({ 
         mode: "onBlur",
         defaultValues: { 
-            firstName: '',
-            lastName: '',
-            report: '',
-            proposedSolution: '',
-            solution: '',
-            incidentLocation: '',
-            specialInstructions: '',
+            author_id: 0,
+            title: '',
+            description: '',
+            street_address: '',
+            address_notes: '',
             city: '',
             state: '',
-            zip: '',
-            upvoteCount: '0',
-            comments: []
+            zip_code: '',
         } 
     });
 
-    const onSubmit = (data) => { 
-        console.log(data)
-        reset()
-      }
+    const postIssue = (newIssue) =>{axios.post('https://comake-backend-tt76.herokuapp.com/issues', newIssue)
+      .then(res => {
+        console.log('result from API', res)
+      })
+      .catch(err => {
+        console.log(err)
+      })}
+    
 
-      const onClear = (data) => {
+    const onSubmit = (newIssue) => { 
+        newIssue.author_id = 3
+        console.log(newIssue)
+        postIssue(newIssue)
         reset()
-      }
+    }
 
     return (
         <div className='issues-list-container'>
             <Form>
                 <Row form>
-                    <Col md={6}>
+                    <Col md={3}>
                         <FormGroup>
-                            <Label for='firstName'>First Name</Label>
+                            <Label for='title'>Title of Report</Label>
                             <Input 
-                            type='text' 
-                            name='firstName' 
-                            invalid={errors.firstName ? true : false}
-                            innerRef={register({required: "First name is required and must be 3 characters long.", minLength: 3},)} 
-                            placeholder='Enter your first name here'/>
-                            <ErrorMessage errors={errors} name='firstName' />
+                                type='text' 
+                                name='title' 
+                                invalid={errors.title ? true : false}
+                                innerRef={register({required: "A title is required"})} 
+                                placeholder='What seems to be the issue?'
+                            />
+                            <ErrorMessage errors={errors} name='title' />
                         </FormGroup>
                     </Col>
-                    
-                     <Col md={6}>
+                    <Col md={9}>
                         <FormGroup>
-                            <Label for='lastName'>Last Name</Label>
+                            <Label for='description'>Description of problem</Label>
                             <Input 
-                            type='text' 
-                            name='lastName'
-                            invalid={errors.lastName ? true : false}
-                            innerRef={register({required: "Last name is required and must be 3 characters long.", minLength: 3})} 
-                            placeholder='Enter your last name here'/>
-                            <ErrorMessage errors={errors} name='lastName' />
-                        </FormGroup>
-                    </Col>
-                </Row>
-                <Row form>
-                    <Col md={12}>
-                        <FormGroup>
-                            <Label for='report'>Report</Label>
-                            <Input 
-                            type='text' 
-                            name='report' 
-                            invalid={errors.report ? true : false}
-                            innerRef={register({required: "A report is required"})} 
-                            placeholder='What seems to be the issue?'/>
-                            <ErrorMessage errors={errors} name='report' />
+                                type='text' 
+                                name='description' 
+                                invalid={errors.description ? true : false}
+                                innerRef={register({required: "A description is required and needs to be 10 characters long", minLength: 10})} 
+                                placeholder='What seems to be the issue?'
+                            />
+                            <ErrorMessage errors={errors} name='description' />
                         </FormGroup>
                     </Col>
                 </Row>
                 <Row form>
                     <Col md={12}>
                         <FormGroup>
-                            <Label for='proposedSolution'>Proposed Solution</Label>
+                            <Label for='street_address'>Incident Location</Label>
                             <Input 
-                            type='text' 
-                            name='proposedSolution'
-                            invalid={errors.proposedSolution ? true : false}
-                            innerRef={register} 
-                            placeholder='How can we help? (optional)'/>
+                                type='text' 
+                                name='street_address' 
+                                innerRef={register} 
+                                placeholder='1234 Main St (optional)'
+                            />
                         </FormGroup>
                     </Col>
                 </Row>
                 <Row form>
                     <Col md={12}>
                         <FormGroup>
-                            <Label for='address'>Incident Location</Label>
+                            <Label for='address_notes'>Special Instructions</Label>
                             <Input 
-                            type='text' 
-                            name='address' 
-                            innerRef={register} 
-                            placeholder='1234 Main St (optional)'/>
-                        </FormGroup>
-                    </Col>
-                </Row>
-                <Row form>
-                    <Col md={12}>
-                        <FormGroup>
-                            <Label for='address2'>Special Instructions</Label>
-                            <Input 
-                            type='text' 
-                            name='address2'
-                            innerRef={register} 
-                            placeholder='Is there anything else you need us to know? (optional)'/>
+                                type='text' 
+                                name='address_notes'
+                                innerRef={register} 
+                                placeholder='Is there anything else you need us to know? (optional)'
+                            />
                         </FormGroup>
                     </Col>
                 </Row>
@@ -117,10 +97,11 @@ export default function AddNewIssue(props){
                         <FormGroup>
                             <Label for='city'>City</Label>
                             <Input 
-                            type='text' 
-                            name='city' 
-                            invalid={errors.city ? true : false}
-                            innerRef={register({required: "City is required"})}/>
+                                type='text' 
+                                name='city' 
+                                invalid={errors.city ? true : false}
+                                innerRef={register({required: "City is required"})}
+                            />
                             <ErrorMessage errors={errors} name='city' />
                         </FormGroup>
                     </Col>
@@ -128,26 +109,28 @@ export default function AddNewIssue(props){
                         <FormGroup>
                             <Label for='state'>State</Label>
                             <Input 
-                            type='text' 
-                            name='state' 
-                            invalid={errors.state ? true : false}
-                            innerRef={register({required: "State is required"})}/>
+                                type='text' 
+                                name='state' 
+                                invalid={errors.state ? true : false}
+                                innerRef={register({required: "State is required"})}
+                            />
                             <ErrorMessage errors={errors} name='state' />
                         </FormGroup>
                     </Col>
                     <Col md={2}>
                         <FormGroup>
-                            <Label for='zip'>Zip Code</Label>
+                            <Label for='zip_code'>Zip Code</Label>
                             <Input 
-                            type='text' 
-                            name='zip' 
-                            invalid={errors.zip ? true : false}
-                            innerRef={register({required: "Zip code is required"})}/>
-                            <ErrorMessage errors={errors} name='zip' />
+                                type='text' 
+                                name='zip_code' 
+                                invalid={errors.zip_code ? true : false}
+                                innerRef={register({required: "Zip code is required"})}
+                            />
+                            <ErrorMessage errors={errors} name='zip_code' />
                         </FormGroup>
                     </Col>
                     <Button id='issueFormButton1' onClick={handleSubmit(onSubmit)} color="primary" size="lg">Submit</Button>{' '}
-                    <Button onClick={onClear}outline color="secondary" size="lg">Clear</Button>
+                    <Button onClick={() => reset()}outline color="secondary" size="lg">Clear</Button>
                 </Row>
             </Form>
         </div>

@@ -24,5 +24,3 @@ ReactDOM.render(
   </Provider>  ,
   document.getElementById('root')
 );
-
-

@@ -2,7 +2,7 @@ import React from 'react';
 import {
    Card, CardText, CardBody,
    CardTitle, Button, ListGroup, ListGroupItem, CardImg
- } from 'reactstrap';
+} from 'reactstrap';
 import { connect } from 'react-redux';
 import { upvoteIssue as upvote} from '../store/actions/issuesActions'
 

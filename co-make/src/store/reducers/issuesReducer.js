@@ -9,10 +9,10 @@ export const issuesReducer = (state = initialState, action) => {
    switch (action.type) {
       case FETCH_ISSUES_START: 
          return {
-            ...state,
+            ...state, 
             issuesListIsLoading: true
          };
-      case FETCH_ISSUES_SUCCESS:
+      case FETCH_ISSUES_SUCCESS: 
          return {
             ...state,
             issues: action.payload,
