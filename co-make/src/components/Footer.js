@@ -17,6 +17,7 @@ const Footer = () => {
             <i class="fab fa-facebook-square fa-3x"></i>
             <i class="fab fa-instagram-square fa-3x"></i>
     </div>
+    
   
 </footer>
 

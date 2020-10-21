@@ -151,6 +151,8 @@
   border: 2px solid black;
   background: #333a40;
   font-family: "Roboto", sans-serif;
+  display: flex;
+  justify-content: space-between;
 }
 
 .footer-text {
@@ -158,6 +160,7 @@
   color: #c2cbd2;
   text-align: start;
   margin: 15px 10px 0 10px;
+  padding: 3%;
 }
 
 #bold {
@@ -168,10 +171,11 @@
 }
 
 .footer-icons {
+  align-self: flex-end;
+  width: 30%;
   display: flex;
   justify-content: space-around;
-  width: 25%;
-  margin: 0 auto;
+  margin-bottom: 30px;
   color: #c2cbd2;
 }
 
@@ -180,11 +184,19 @@
   .tabbed-form-container {
     width: 300px;
   }
+  .footer {
+    flex-direction: column;
+  }
   .footer-icons {
-    width: 80%;
+    width: 100%;
   }
 
   .footer-text {
     width: 50%;
+    margin: 5px 0 0 0;
+  }
+
+  #bold {
+    margin: 0;
   }
 }
