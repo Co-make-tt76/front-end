@@ -62,7 +62,7 @@
 #add-issue-submit-btn {
   background-color: #44494d;
   color: white;
-  margin: 1% auto;
+  margin: .25% auto;
   width: 90%;
 }
 #add-issue-submit-btn:hover {
@@ -75,7 +75,7 @@
   background-color: #a8b5c0;
   color: white;
   border: none;
-  margin: 0% auto;
+  margin: .25% auto;
   width: 90%;
 }
 
@@ -84,6 +84,28 @@
   color: #44494d;
   border: 2px solid #44494d;
 
+  padding: 24px 18px;
+  width: 90%;
+  border: 2px solid #343a40;
+  border-radius: 8px;
+  box-shadow: 2px 10px 14px rgba(0, 0, 0, 0.6);
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#delete-btn {
+  background-color: #ed9595;
+  color: white;
+  border: none;
+  margin: .25% auto;
+  width: 90%;
+}
+
+#delete-btn:hover {
+  background-color: red;
+  color: black;
+  border: 2px solid #44494d;
+  font-weight: bolder;
   padding: 24px 18px;
   width: 90%;
   border: 2px solid #343a40;
