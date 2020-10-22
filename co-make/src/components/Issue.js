@@ -39,7 +39,7 @@ function Issue(props) {
                   <Button className='upvote-button' onClick={() => upvote(issue)}>Upvote</Button>
                   <p>{issue.upvotes}</p>
                </div>
-               <Comment id={issue.id}></Comment>
+               <Comment id={issue}></Comment>
             </CardBody>
          </Card>
       </div>

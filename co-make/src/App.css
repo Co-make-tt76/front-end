@@ -101,17 +101,9 @@
 }
 
 #delete-btn:hover {
-  background-color: red;
-  color: black;
-  border: 2px solid #44494d;
-  font-weight: bolder;
-  padding: 24px 18px;
-  width: 90%;
+  background-color: white;
+  color: #343a40;
   border: 2px solid #343a40;
-  border-radius: 8px;
-  box-shadow: 2px 10px 14px rgba(0, 0, 0, 0.6);
-  display: flex;
-  flex-wrap: wrap;
 }
 
 .issue-container {
@@ -130,8 +122,9 @@
 
 .issue-container .card .card-body {
   padding: 8px 8px 40px;
-  border-radius: 8px;
-  box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.6);
+  border: 2.5px solid #44494d;
+  border-radius: 6px;
+  box-shadow: 0px 0px 12px rgba(0, 0, 0, 1);
 }
 
 .issue-container .card .cardtext {
@@ -143,9 +136,9 @@
   margin: 0 auto;
   padding: 24px 18px;
   width: 95%;
-  border: 2px solid #343a40;
+  border: 3px solid white;
   border-radius: 8px;
-  box-shadow: 0px 0px 18px rgba(255, 255, 255, 0.5);
+  box-shadow: 0px 0px 12px rgba(255, 255, 255, 0.7);
   display: flex;
   flex-wrap: wrap;
 }
@@ -228,18 +221,31 @@
   width: 75%;
   align-self: center;
   margin: 10px;
+<<<<<<< HEAD
 }
 
 #comment-submit-btn {
+=======
+
+#comment-submit-btn{
+>>>>>>> f652f27533e2ab9d665ab8615c6b3bb1b6dcd067
   bottom: 10px;
   position: absolute;
   left: 60%;
 }
 
+<<<<<<< HEAD
 #comment-cancel-btn {
   bottom: 10px;
   position: absolute;
   left: 80%;
+=======
+#comment-cancel-btn{
+  bottom: 10px;
+  position: absolute;
+  left: 80%;
+
+>>>>>>> f652f27533e2ab9d665ab8615c6b3bb1b6dcd067
 }
 
 .footer {
@@ -329,19 +335,31 @@
     flex-direction: column-reverse;
   }
   .new-issue-img {
-    width: 100%;
+    width: 80%;
+    margin: 0% 0% 1% 6%;
+    max-height:40rem;
   }
+<<<<<<< HEAD
   .new-issue-img img {
     height: 70vh;
     width: 50%;
     margin: auto;
+=======
+  .new-issue-img img{
+    width:100%;
+    max-height:40rem;
+>>>>>>> f652f27533e2ab9d665ab8615c6b3bb1b6dcd067
   }
   .new-issue-container label {
     font-size: 16px;
   }
 }
+@media(max-width: 900px) {
+  .new-issue-img img{
+    height:50vh;
+  }
+}
 /* LANDINGSECTION CSS */
-
 video {
   object-fit: cover;
   width: 100%;

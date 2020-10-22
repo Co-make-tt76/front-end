@@ -8,7 +8,7 @@ import {axiosWithAuth} from '../utils/axiosWithAuth'
 
 export default function Comment(props){
     const [addComment, setAddComment] = useState(false);
-    const id = props;
+    const {id, counter} = props;
     const { push } = useHistory();
 
     const { register, handleSubmit, errors} = useForm({ 

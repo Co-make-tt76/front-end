@@ -5,9 +5,11 @@ import { useForm } from 'react-hook-form'
 import { useParams, useHistory } from 'react-router-dom'
 import { connect } from 'react-redux';
 import { deleteIssue } from '../store/actions/issuesActions';
+import { editIssue } from '../store/actions/issuesActions';
 import axios from 'axios'
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
+import { axiosWithAuth } from '../utils/axiosWithAuth';
 
 const schema = yup.object().shape({
     
@@ -15,7 +17,7 @@ const schema = yup.object().shape({
 
 function EditIssue(props){
 
-    const { deleteIssue } = props;
+    const { deleteIssue, editIssue } = props;
 
     const { id } = useParams()
     const { push } = useHistory()
@@ -36,8 +38,8 @@ function EditIssue(props){
     });
 
     const getFormData = () => { 
-        axios
-            .get(`https://comake-backend-tt76.herokuapp.com/issues/${id}`)
+        axiosWithAuth()
+            .get(`/issues/${id}`)
             .then(itemToEdit => {
                 reset({ 
                     title: itemToEdit.data.title,
@@ -48,10 +50,9 @@ function EditIssue(props){
                     state: itemToEdit.data.state,
                     zip_code: itemToEdit.data.zip_code,
                 })
-                console.log(itemToEdit.data.title)
             })
             .catch(err => {
-                // console.log(err)
+                console.log(err)
             })
     }
 
@@ -70,9 +71,9 @@ function EditIssue(props){
     }
     
     const onSubmit = (editedIssue) => { 
-        editedIssue.author_id = 3
         console.log(editedIssue)
-        putIssue(editedIssue)
+        const replacedIssue = { ...editedIssue, id: id}
+        editIssue(replacedIssue)
         setTimeout(() => {
             push(`/issues`);
           }, 1000)
@@ -217,6 +218,6 @@ function EditIssue(props){
     )
 }
 
-export default connect(null, { deleteIssue })(EditIssue);
+export default connect(null, { deleteIssue, editIssue })(EditIssue);
     
 
