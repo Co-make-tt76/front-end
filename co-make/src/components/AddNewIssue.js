@@ -35,7 +35,9 @@ export default function AddNewIssue(){
         newIssue.author_id = 3
         console.log(newIssue)
         postIssue(newIssue)
-        push( '/')
+        setTimeout(() => {
+            push(`/`);
+          }, 1000)
     }
 
     return (

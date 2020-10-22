@@ -1,15 +1,20 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { Col, Row, Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import { ErrorMessage } from '@hookform/error-message';
-import { useForm, Controller } from 'react-hook-form'
+import { useForm } from 'react-hook-form'
 import { useParams, useHistory } from 'react-router-dom'
+import { connect } from 'react-redux';
+import { deleteIssue } from '../store/actions/issuesActions';
 import axios from 'axios'
 
-export default function EditIssue(){
+function EditIssue(props){
+
+    const { deleteIssue } = props;
+
     const { id } = useParams()
     const { push } = useHistory()
 
-    const { register, handleSubmit, errors, reset, control } = useForm({ 
+    const { register, handleSubmit, errors, reset } = useForm({ 
         mode: "onBlur",
         defaultValues: { 
             author_id: 0,
@@ -45,7 +50,7 @@ export default function EditIssue(){
 
     useEffect(() => {
             getFormData()
-    }, [])
+    }, [id])
 
     const putIssue = (editedIssue) => {
         axios.put(`https://comake-backend-tt76.herokuapp.com/issues/${id}`, editedIssue)
@@ -62,6 +67,13 @@ export default function EditIssue(){
         console.log(editedIssue)
         putIssue(editedIssue)
         push('/')
+    }
+
+    const onDelete = (id) => {
+        deleteIssue(id)
+        setTimeout(() => {
+            push(`/`);
+          }, 1000)
     }
 
     return (
@@ -179,7 +191,9 @@ export default function EditIssue(){
                         </Row>
                         <Row form>
                             <Button id='add-issue-submit-btn' onClick={handleSubmit(onSubmit)}  size="lg" block>Confirm Changes</Button>
-                            <Button id='add-issue-clear-btn' onClick={() => push('/')}outline color="secondary" size="lg" block>Cancel</Button>
+                            <Button id='add-issue-clear-btn' onClick={() => push('/')} outline color="secondary" size="lg" block>Cancel</Button>
+                            <Button id='delete-btn' onClick={() => onDelete(id)} outline color="secondary" size="lg" block>Delete</Button>
+
                         </Row>
                     </Form>
                 </div>
@@ -193,5 +207,7 @@ export default function EditIssue(){
         </div>
     )
 }
+
+export default connect(null, { deleteIssue })(EditIssue);
     
 
