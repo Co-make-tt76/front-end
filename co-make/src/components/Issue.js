@@ -25,9 +25,12 @@ function Issue(props) {
                   top
                ></CardImg>
                <ListGroup className='comment-group'>
-                  <ListGroupItem>Cras justo odio</ListGroupItem>
-                  <ListGroupItem>Dapibus ac facilisis in</ListGroupItem>
-                  <ListGroupItem>Vestibulum at eros</ListGroupItem>
+                  {issue.comments.map(comment => (
+                     <ListGroupItem 
+                        key={comment.id}>
+                           {comment.comment}
+                     </ListGroupItem>
+                  ))}
                </ListGroup>
 
                <Button className='edit-button' onClick={() => push(`/editIssue/${issue.id}`)}>Edit</Button> 
@@ -43,5 +46,3 @@ function Issue(props) {
 }
 
 export default connect(null, { upvote })(Issue);
-
-// ta: "{"id":2,"created_at":"2020-10-20T21:56:01.697Z","updated_at":"2020-10-20T21:56:01.697Z","title":"Park WEEDS","description":"Everytime I go to take a nap at the park, I end up laying in a goathead patch. With the number of kids and dogs that play in the grass, this is becoming a serious danger","author_id":3,"street_address":"3925 Neil Rd","address_notes":"Miguel Ribera Park","city":"Reno","state":"NV","zip_code":89502,"status":"in progress","upvotes":11,"downvotes":0}"

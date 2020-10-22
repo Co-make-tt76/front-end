@@ -112,9 +112,15 @@
   color: red;
 }
 
-.issues-list-container{
-  display:flex;
-  flex-wrap:wrap;
+.issues-list-container {
+  margin: 32px auto;
+  padding: 24px 18px;
+  width: 95%;
+  border: 2px solid #343A40;
+  border-radius: 8px;
+  box-shadow: 2px 10px 14px rgba(0,0,0,.6);
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .issues-display {
