@@ -9,7 +9,7 @@ const LoginDropDown= (props) => {
 
   return (
     <Dropdown direction="left"  isOpen={dropdownOpen} toggle={toggle}>
-      <DropdownToggle size="sm" style={{marginTop:"5px"}}>
+      <DropdownToggle id="login" size="sm" style={{marginTop:"5px"}}>
         Login/Sign 
         </DropdownToggle>
       <DropdownMenu className='login-container'>
