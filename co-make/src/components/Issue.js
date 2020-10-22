@@ -22,7 +22,7 @@ function Issue(props) {
                <CardText>Location: {issue.street_address}, {issue.city}, {issue.state} {issue.zip_code}</CardText>
                <CardImg
                   alt="nope"
-                  src="https://43s9nl2car3y38bljk2aps69-wpengine.netdna-ssl.com/wp-content/uploads/2020/06/placeholder-300x200.png"
+                  src="https://source.unsplash.com/600x400/?construction,signs"
                   top
                ></CardImg>
                <ListGroup className='comment-group'>
