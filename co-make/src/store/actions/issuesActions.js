@@ -19,7 +19,23 @@ export const fetchIssues = () => (dispatch) => {
 export const upvoteIssue = (issue) => (dispatch) => {
    dispatch({ type : UPVOTE_ISSUE_START })
    const currentUpvotes = issue.upvotes
-   const upvotedIssue = { ...issue, upvotes : currentUpvotes + 1 }
+   const destructuredIssue = {      
+      address_notes: issue.address_notes,
+      author_id: issue.author_id,
+      city: issue.city,
+      created_at: issue.created_at,
+      description: issue.description,
+      downvotes: issue.downvotes,
+      id: issue.id,
+      state: issue.state,
+      status: issue.status,
+      street_address: issue.street_address,
+      title: issue.title,
+      updated_at: issue.updated_at,
+      upvotes: issue.upvotes,
+      zip_code: issue.zip_code
+   }
+   const upvotedIssue = { ...destructuredIssue, upvotes : currentUpvotes + 1 }
    axiosWithAuth()
       .put(`/issues/${issue.id}`, upvotedIssue)
       .then(res => {
