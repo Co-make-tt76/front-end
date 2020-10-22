@@ -1,10 +1,12 @@
 import { DELETE_ISSUE_START, DELETE_ISSUE_SUCCESS, 
    FETCH_ISSUES_START, FETCH_ISSUES_SUCCESS, 
-   UPVOTE_ISSUE_START, UPVOTE_ISSUE_SUCCESS 
+   UPVOTE_ISSUE_START, UPVOTE_ISSUE_SUCCESS,
+   EDIT_ISSUE_START, EDIT_ISSUE_SUCCESS
 } from '../variables';
 
 const initialState = {
    issuesListIsLoading: false,
+   editRequestSending: false,
    upvoteRequestSending: false,
    deleteRequestSending: false,
    issues: []
@@ -23,6 +25,16 @@ export const issuesReducer = (state = initialState, action) => {
             issues: action.payload,
             issuesListIsLoading: false
          };
+      case EDIT_ISSUE_START:
+         return {
+            ...state,
+            editRequestSending: true,
+         }
+      case EDIT_ISSUE_SUCCESS:
+         return {
+            ...state,
+            editRequestSending: false,
+         }
       case UPVOTE_ISSUE_START:
          return {
             ...state,
@@ -55,3 +67,11 @@ export const issuesReducer = (state = initialState, action) => {
          return state;
    }
 }
+
+// address_notes: "Lot to the west of property"
+// city: "Reno"
+// description: "Trashbags have been abandoned in the empty lot next to my homeASOJFOASIJFAOSJFASJFOSJFOSJFOSJFOSFJSF"
+// state: "NV"
+// street_address: "1570 Nannete Cir"
+// title: "Illegal trash dumping"
+// zip_code:
