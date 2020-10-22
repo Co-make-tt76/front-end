@@ -6,6 +6,12 @@ import { useParams, useHistory } from 'react-router-dom'
 import { connect } from 'react-redux';
 import { deleteIssue } from '../store/actions/issuesActions';
 import axios from 'axios'
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as yup from "yup";
+
+const schema = yup.object().shape({
+    
+});
 
 function EditIssue(props){
 
@@ -16,6 +22,7 @@ function EditIssue(props){
 
     const { register, handleSubmit, errors, reset } = useForm({ 
         mode: "onBlur",
+        resolver: yupResolver(schema),
         defaultValues: { 
             author_id: 0,
             title: '',
@@ -49,7 +56,7 @@ function EditIssue(props){
     }
 
     useEffect(() => {
-            getFormData()
+        getFormData()
     }, [id])
 
     const putIssue = (editedIssue) => {

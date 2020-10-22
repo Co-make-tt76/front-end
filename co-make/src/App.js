@@ -7,7 +7,8 @@ import LoginRegisterTab from './components/LoginRegisterTab'
 import AddNewIssue from './components/AddNewIssue';
 import EditIssue from './components/EditIssue'
 import Footer from './components/Footer'
-import LandingSection from './components/LandingSection';
+import Comment from './components/Comment'
+import LandingSection from './components/LandingSection'
 
 
 
@@ -16,12 +17,13 @@ function App() {
 		<div className="App">
 			<NavBar />
 			<div className='routes'>
-					<Route exact path='/' component={LandingSection} />
-					<Route exact path={["/", "/issues"]} component={IssuesList} />
-					<Route path="/login" component={() => <LoginRegisterTab tab={'2'} />} />
-					<Route path='/register' component={() => <LoginRegisterTab tab={'1'} /> } />
-					<Route path='/addIssue' component={AddNewIssue} />
-					<Route path='/editIssue/:id' component={EditIssue} />
+				<Route exact path='/' component={LandingSection} />
+				<Route exact path={["/", "/issues"]} component={IssuesList} />
+				<Route path="/login" component={() => <LoginRegisterTab tab={'2'} />} />
+				<Route path='/register' component={() => <LoginRegisterTab tab={'1'} /> } />
+				<Route path='/addIssue' component={AddNewIssue} />
+				<Route path='/editIssue/:id' component={EditIssue} />
+				<Route path='/addComment/:id' component={Comment} />
 			</div>
 			<Footer />
 		</div>
