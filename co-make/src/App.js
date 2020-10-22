@@ -8,6 +8,7 @@ import AddNewIssue from './components/AddNewIssue';
 import EditIssue from './components/EditIssue'
 import Footer from './components/Footer'
 import LandingSection from './components/LandingSection';
+import About from './components/About';
 
 
 
@@ -22,6 +23,7 @@ function App() {
 					<Route path='/register' component={() => <LoginRegisterTab tab={'1'} /> } />
 					<Route path='/addIssue' component={AddNewIssue} />
 					<Route path='/editIssue/:id' component={EditIssue} />
+					<Route path='/about' component={About} />
 			</div>
 			<Footer />
 		</div>
