@@ -66,7 +66,9 @@ function EditIssue(props){
         editedIssue.author_id = 3
         console.log(editedIssue)
         putIssue(editedIssue)
-        push('/')
+        setTimeout(() => {
+            push(`/issues`);
+          }, 1000)
     }
 
     const onDelete = (id) => {
