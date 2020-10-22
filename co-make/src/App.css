@@ -130,8 +130,9 @@
 
 .issue-container .card .card-body {
   padding: 8px 8px 40px;
-  border-radius: 8px;
-  box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.6);
+  border: 2.5px solid #44494d;
+  border-radius: 6px;
+  box-shadow: 0px 0px 12px rgba(0, 0, 0, 1);
 }
 
 .issue-container .card .cardtext {
@@ -143,9 +144,9 @@
   margin: 0 auto;
   padding: 24px 18px;
   width: 95%;
-  border: 2px solid #343a40;
+  border: 3px solid white;
   border-radius: 8px;
-  box-shadow: 0px 0px 18px rgba(255, 255, 255, 0.5);
+  box-shadow: 0px 0px 12px rgba(255, 255, 255, 0.7);
   display: flex;
   flex-wrap: wrap;
 }
