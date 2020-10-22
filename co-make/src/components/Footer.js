@@ -12,10 +12,18 @@ const Footer = () => {
       <p id="bold" >Be Heard Be Bold</p>
     </div>
       <div className='footer-icons'>
-            <i class="fab fa-github-square fa-3x"></i>
+            <a href="https://github.com/Co-make-tt76" target="_blank">
+              <i class="fab fa-github-square fa-3x"></i>
+            </a>
+            <a href="https://twitter.com/search?q=%23urbanimprovements&src=typed_query" target="_blank"> 
             <i className="fab fa-twitter-square fa-3x"></i>
+            </a>
+            <a href="https://www.facebook.com/regenerativearchitecture/" target="_blank"> 
             <i class="fab fa-facebook-square fa-3x"></i>
+            </a>
+            <a href="https://www.instagram.com/urbanstreetdreams/?hl=en" target="_blank"> 
             <i class="fab fa-instagram-square fa-3x"></i>
+            </a>
     </div>
     
   
