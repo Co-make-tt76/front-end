@@ -5,42 +5,21 @@ import { fetchIssues } from '../store/actions/issuesActions';
 
 function IssuesList(props) {
 
-   const { issues, fetchIssues, upvoteRequestSending } = props;
-
-   // useEffect(() => {
-   //    axios
-   //       .get('https://comake-backend-tt76.herokuapp.com/issues')
-   //       .then(res => {
-   //          console.log(res)
-   //       })
-   //       .catch(err => {
-   //          console.log(err)
-   //       })
-   // },[setIssues])
+   const { issues, fetchIssues } = props;
 
    useEffect(() => {
       fetchIssues()
    }, [fetchIssues]);
 
-   // const upvote = issueId => {
-   //    setIssues(
-   //       issues.map(issue => {
-   //       if (issueId === issue.id) {
-   //          const upvotes = issue.upvoteCount;
-   //          return { ...issue, upvoteCount : upvotes + 1 }
-   //       } else {
-   //       return issue
-   //    }
-   //    }))
-   //    console.log('upvote')
-   // }
-
    return (
-      <div className='issues-list-container'>
+      <div className='component-container'>
+         <div className='issues-list-container'>
          {issues.map((issue) => (
                <Issue issue={issue} key={issue.id}/>
          ))}
+         </div>
       </div>
+      
    )
 }
 
