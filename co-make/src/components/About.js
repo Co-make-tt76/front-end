@@ -1,9 +1,62 @@
 import React from 'react';
-import {Jumbotron} from 'reactstrap'
+import {Jumbotron, 
+    Button, 
+    Card, 
+    CardImg,  
+    CardBody,
+    CardTitle, 
+    CardSubtitle,} 
+    from 'reactstrap'
+
+
+    
+    const MemberCard = (props) => {
+        const {member}= props
+        return (
+          <div>
+            <Card>
+              <CardImg top width="100%" src={member.img} alt="CO|MAKE Team Member" />
+              <CardBody>
+                <CardTitle><b>{member.name}</b></CardTitle>
+                <CardSubtitle>{member.role}</CardSubtitle>
+                
+                <Button onClick={() => window.open(member.url, "_blank")}>Hire Me</Button>
+              </CardBody>
+            </Card>
+          </div>
+        );
+      };
 
 
 
 const About = () => {
+    const teamMembers = [{ 
+        name: 'Wesley White', 
+        img: 'img', 
+        url: 'https://github.com/Wesley-Ryan', 
+        role: 'Frontend React'
+    }, 
+    { 
+        name: 'Seth Bradshaw', 
+        img: 'img', 
+        url: 'https://github.com/seth-bradshaw', 
+        role: 'Frontend React'
+    }, 
+    { 
+        name: 'Trevor Armes', 
+        img: 'img', 
+        url: 'https://github.com/tarmes', 
+        role: 'Frontend React II'
+    }, 
+    { 
+        name: 'Josh Glantz', 
+        img: 'img', 
+        url: 'https://github.com/Jahteo', 
+        role: 'Backend NodeJS'
+    }]
+
+
+
     return ( 
     
     <div> 
@@ -26,6 +79,12 @@ const About = () => {
       </Jumbotron>
 
       <h2>Meet The Team </h2>
+
+      {teamMembers.map((member, idx) => { 
+          return <MemberCard member={member} key={idx} />
+      })}
+
+      
     </div>);
 }
  
