@@ -27,7 +27,7 @@ export default function NavBar() {
 	}
 
 	return (
-		<div>
+		<div className='navbar-container'>
 			<Navbar color="dark" dark expand="md">
 			<NavbarBrand href="/">CO|MAKE</NavbarBrand>
           <NavbarToggler onClick={toggle} />
