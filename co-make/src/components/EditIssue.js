@@ -10,18 +10,14 @@ import axios from 'axios'
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
 import { axiosWithAuth } from '../utils/axiosWithAuth';
-
 const schema = yup.object().shape({
-    
 });
-
 function EditIssue(props){
 
     const { deleteIssue, editIssue } = props;
 
     const { id } = useParams()
     const { push } = useHistory()
-
     const { register, handleSubmit, errors, reset } = useForm({ 
         mode: "onBlur",
         resolver: yupResolver(schema),
@@ -36,7 +32,6 @@ function EditIssue(props){
             zip_code: '',
         } 
     });
-
     const getFormData = () => { 
         axiosWithAuth()
             .get(`/issues/${id}`)
@@ -55,11 +50,9 @@ function EditIssue(props){
                 console.log(err)
             })
     }
-
     useEffect(() => {
         getFormData()
     }, [id])
-
     const putIssue = (editedIssue) => {
         axios.put(`https://comake-backend-tt76.herokuapp.com/issues/${id}`, editedIssue)
       .then(res => {
@@ -69,7 +62,6 @@ function EditIssue(props){
         console.log(err)
       })
     }
-    
     const onSubmit = (editedIssue) => { 
         console.log(editedIssue)
         const replacedIssue = { ...editedIssue, id: id}
@@ -78,14 +70,12 @@ function EditIssue(props){
             push(`/issues`);
           }, 1000)
     }
-
     const onDelete = (id) => {
         deleteIssue(id)
         setTimeout(() => {
             push(`/`);
           }, 1000)
     }
-
     return (
         <div className='new-issue-container'>
             <div>
@@ -153,7 +143,6 @@ function EditIssue(props){
                             </Col>
                         </Row>
                         <Row form>
-                            
                         </Row>
                         <Row form>
                             <Col md={2}/> 
@@ -203,7 +192,6 @@ function EditIssue(props){
                             <Button id='add-issue-submit-btn' onClick={handleSubmit(onSubmit)}  size="lg" block>Confirm Changes</Button>
                             <Button id='add-issue-clear-btn' onClick={() => push('/')} outline color="secondary" size="lg" block>Cancel</Button>
                             <Button id='delete-btn' onClick={() => onDelete(id)} outline color="secondary" size="lg" block>Delete</Button>
-
                         </Row>
                     </Form>
                 </div>
