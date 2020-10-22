@@ -294,6 +294,13 @@
   #bold {
     margin: 0;
   }
+  .navbar-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+  }
+
 }
 
 /** making newIssue responsive **/
