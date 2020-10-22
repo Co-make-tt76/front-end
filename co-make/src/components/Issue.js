@@ -9,7 +9,7 @@ import { useHistory } from 'react-router-dom'
 
 function Issue(props) {
 
-   const { issue, upvote } = props;
+   const { issue, upvote, isLoggedIn } = props;
    const {push} = useHistory();
 
    return (
@@ -32,8 +32,8 @@ function Issue(props) {
                      </ListGroupItem>
                   ))}
                </ListGroup>
-
-               <Button className='edit-button' onClick={() => push(`/editIssue/${issue.id}`)}>Edit</Button> 
+               { isLoggedIn ? <Button className='edit-button' onClick={() => push(`/editIssue/${issue.id}`)}>Edit</Button> : null}
+               
                <div className='upvote-container'>
                   <Button className='upvote-button' onClick={() => upvote(issue)}>Upvote</Button>
                   <p>{issue.upvotes}</p>
@@ -45,4 +45,10 @@ function Issue(props) {
    )
 }
 
-export default connect(null, { upvote })(Issue);
+const mapStateToProps = (state) => {
+   return {
+   isLoggedIn: state.userState.isLoggedIn
+   }
+}
+
+export default connect(mapStateToProps, { upvote })(Issue);
