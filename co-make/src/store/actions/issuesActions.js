@@ -48,10 +48,11 @@ export const upvoteIssue = (issue) => (dispatch) => {
 export const deleteIssue = (id) => (dispatch) => {
    dispatch({ type: DELETE_ISSUE_START });
    axiosWithAuth()
-      .delete(`issues/all/${id}`)
+      .delete(`issues/${id}`)
       .then(res => {
-         console.log(res)
-         dispatch({ type: DELETE_ISSUE_SUCCESS, payload: res.data })
+         console.log('THIS IS THE PAYLOAD', id)
+         console.log('THIS IS THE RESPONSE', res)
+         dispatch({ type: DELETE_ISSUE_SUCCESS, payload: id })
       })
       .catch(err => {
          console.log(err)

@@ -48,7 +48,7 @@ export const issuesReducer = (state = initialState, action) => {
       case DELETE_ISSUE_SUCCESS:
          return {
             ...state,
-            issues: action.payload,
+            issues: state.issues.filter(issue => issue.id !== action.payload),
             deleteRequestSending: false
          }
       default:
