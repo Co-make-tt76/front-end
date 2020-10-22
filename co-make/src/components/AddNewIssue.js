@@ -4,6 +4,7 @@ import { ErrorMessage } from '@hookform/error-message';
 import { useForm } from 'react-hook-form'
 import axios from 'axios'
 import { useHistory } from 'react-router-dom'
+import {axiosWithAuth} from '../utils/axiosWithAuth'
 
 
 export default function AddNewIssue(){
@@ -22,7 +23,7 @@ export default function AddNewIssue(){
         } 
     });
 
-    const postIssue = (newIssue) =>{axios.post('https://comake-backend-tt76.herokuapp.com/issues', newIssue)
+    const postIssue = (newIssue) =>{axiosWithAuth().post('https://comake-backend-tt76.herokuapp.com/issues', newIssue)
       .then(res => {
         console.log('result from API', res)
       })

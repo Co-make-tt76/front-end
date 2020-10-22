@@ -203,4 +203,7 @@ function EditIssue(props){
         </div>
     )
 }
+
 export default connect(null, { deleteIssue, editIssue })(EditIssue);
+    
+

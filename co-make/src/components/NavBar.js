@@ -11,10 +11,15 @@ import {
     NavItem,
     NavLink,
   } from "reactstrap";
+import { connect } from 'react-redux';
+import { setLoggedOut } from '../store/actions/userActions';
 
 
 
-export default function NavBar() {
+function NavBar(props) {
+
+	const { setLoggedOut } = props;
+
 	const [isOpen, setIsOpen] = useState(false);
 	const toggle = () => setIsOpen(!isOpen);
 	const { push } = useHistory();
@@ -23,7 +28,8 @@ export default function NavBar() {
 
 	const handleSignOut = e => {
 		e.preventDefault();
-		push('/issues')
+		setLoggedOut()
+		push("/")
 	}
 
 	return (
@@ -52,3 +58,5 @@ export default function NavBar() {
 		</div>
 	);
 }
+
+export default connect(null, { setLoggedOut })(NavBar);

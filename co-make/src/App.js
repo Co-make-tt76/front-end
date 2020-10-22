@@ -26,9 +26,7 @@ function App() {
 				<Route path='/addComment/:id' component={Comment} />
 			</div>
 			<Footer />
-		</div>
-
-		
+		</div>		
 	);
 }
 
