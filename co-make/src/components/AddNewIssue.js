@@ -151,7 +151,7 @@ export default function AddNewIssue(){
                         </Row>
                         <Row form>
                             <Button id='add-issue-submit-btn' onClick={handleSubmit(onSubmit)}  size="lg" >Submit</Button>
-                            <Button id='add-issue-clear-btn' onClick={() => reset()}outline color="secondary" size="lg" block>Clear</Button>
+                            <Button id='add-issue-clear-btn' onClick={() => push('/')}outline color="secondary" size="lg" block>Cancel</Button>
                         </Row>
                     </Form>
                 </div>

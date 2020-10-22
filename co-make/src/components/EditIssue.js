@@ -4,13 +4,20 @@ import { ErrorMessage } from '@hookform/error-message';
 import { useForm, Controller } from 'react-hook-form'
 import { useParams, useHistory } from 'react-router-dom'
 import axios from 'axios'
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as yup from "yup";
+
+const schema = yup.object().shape({
+    
+});
 
 export default function EditIssue(){
     const { id } = useParams()
     const { push } = useHistory()
 
-    const { register, handleSubmit, errors, reset, control } = useForm({ 
+    const { register, handleSubmit, errors, reset } = useForm({ 
         mode: "onBlur",
+        resolver: yupResolver(schema),
         defaultValues: { 
             author_id: 0,
             title: '',
@@ -44,7 +51,7 @@ export default function EditIssue(){
     }
 
     useEffect(() => {
-            getFormData()
+        getFormData()
     }, [])
 
     const putIssue = (editedIssue) => {

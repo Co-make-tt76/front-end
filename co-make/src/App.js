@@ -7,6 +7,7 @@ import LoginRegisterTab from './components/LoginRegisterTab'
 import AddNewIssue from './components/AddNewIssue';
 import EditIssue from './components/EditIssue'
 import Footer from './components/Footer'
+import Comment from './components/Comment'
 
 
 
@@ -21,6 +22,7 @@ function App() {
 					<Route path='/register' component={() => <LoginRegisterTab tab={'1'} /> } />
 					<Route path='/addIssue' component={AddNewIssue} />
 					<Route path='/editIssue/:id' component={EditIssue} />
+					<Route path='/addComment/:id' component={Comment} />
 				</Switch>
 			</div>
 			<Footer />
