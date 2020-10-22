@@ -30,8 +30,8 @@
   /* box-shadow: 10px 10px 10px #424547; */
 }
 
-.new-issue-container h3{
-  color: #343A40;
+.new-issue-container h3 {
+  color: #343a40;
   padding-bottom: 1%;
   font-size: 35px;
 }
@@ -41,46 +41,46 @@
   margin: 3% 0% 3% auto;
 }
 
-.new-issue-form{
+.new-issue-form {
   width: 60%;
   margin: auto;
 }
-.new-issue-form label{
+.new-issue-form label {
   font-size: 18px;
 }
 
-.new-issue-img{
+.new-issue-img {
   width: 40%;
-  margin-bottom:1%;
+  margin-bottom: 1%;
 }
 
-.new-issue-img img{
+.new-issue-img img {
   width: 80%;
-  margin-left:5%;
+  margin-left: 5%;
 }
 
-#add-issue-submit-btn{
+#add-issue-submit-btn {
   background-color: #44494d;
   color: white;
   margin: 1% auto;
   width:90%
 }
-#add-issue-submit-btn:hover{
+#add-issue-submit-btn:hover {
   background-color: white;
   color: #44494d;
   border-color: #44494d;
 }
 
-#add-issue-clear-btn{
-  background-color:#a8b5c0;
+#add-issue-clear-btn {
+  background-color: #a8b5c0;
   color: white;
   border: none;
   margin: 0% auto;
   width:90%
 }
 
-#add-issue-clear-btn:hover{
-  background-color:white;
+#add-issue-clear-btn:hover {
+  background-color: white;
   color: #44494d;
   border: 2px solid #44494d;
 }
@@ -97,12 +97,11 @@
 .issue-container .card .card-body {
   padding: 8px 8px 40px;
   border-radius: 8px;
-  box-shadow: 0px 0px 7px rgba(0,0,0,.6);
+  box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.6);
 }
 
 .issue-container .card .cardtext {
   color: red;
-  
 }
 
 .issues-list-container{
@@ -135,18 +134,18 @@
 .upvote-container p {
   position: absolute;
   bottom: 0;
-  left: 17%
+  left: 17%;
 }
 
 .upvote-button {
   position: absolute;
-  bottom: 10px; 
+  bottom: 10px;
   left: 2%;
 }
 
 .edit-button {
   position: absolute;
-  bottom: 10px; 
+  bottom: 10px;
   right: 2%;
 }
 
@@ -158,4 +157,58 @@
 
 .comment-group {
   margin: 16px 0 40px;
+}
+
+.footer {
+  border: 2px solid black;
+  background: #333a40;
+  font-family: "Roboto", sans-serif;
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer-text {
+  width: 30%;
+  color: #c2cbd2;
+  text-align: start;
+  margin: 15px 10px 0 10px;
+  padding: 3%;
+}
+
+#bold {
+  margin: 0 0 0 10px;
+  color: whitesmoke;
+  font-weight: 900;
+  font-family: "Roboto", sans-serif;
+}
+
+.footer-icons {
+  align-self: flex-end;
+  width: 30%;
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 30px;
+  color: #c2cbd2;
+}
+
+/*****  Mobile view *****/
+@media only screen and (max-width: 500px) {
+  .tabbed-form-container {
+    width: 300px;
+  }
+  .footer {
+    flex-direction: column;
+  }
+  .footer-icons {
+    width: 100%;
+  }
+
+  .footer-text {
+    width: 50%;
+    margin: 5px 0 0 0;
+  }
+
+  #bold {
+    margin: 0;
+  }
 }
