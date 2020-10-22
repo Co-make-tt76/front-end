@@ -49,6 +49,9 @@ function NavBar(props) {
 						<NavLink tag={Link} to='/addIssue'>Add Issue</NavLink>
 					</NavItem>
 					<NavItem>
+						<NavLink tag={Link} to='/about'>About</NavLink>
+					</NavItem>
+					<NavItem>
 						<NavLink tag={Link} to='/' onClick={handleSignOut}>Sign Out</NavLink>
 						
 					</NavItem>
