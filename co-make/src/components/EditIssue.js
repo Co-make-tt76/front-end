@@ -70,7 +70,6 @@ function EditIssue(props){
     }
     
     const onSubmit = (editedIssue) => { 
-        editedIssue.author_id = 3
         console.log(editedIssue)
         putIssue(editedIssue)
         setTimeout(() => {
