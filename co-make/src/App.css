@@ -221,31 +221,18 @@
   width: 75%;
   align-self: center;
   margin: 10px;
-<<<<<<< HEAD
 }
 
 #comment-submit-btn {
-=======
-
-#comment-submit-btn{
->>>>>>> f652f27533e2ab9d665ab8615c6b3bb1b6dcd067
   bottom: 10px;
   position: absolute;
   left: 60%;
 }
 
-<<<<<<< HEAD
 #comment-cancel-btn {
   bottom: 10px;
   position: absolute;
   left: 80%;
-=======
-#comment-cancel-btn{
-  bottom: 10px;
-  position: absolute;
-  left: 80%;
-
->>>>>>> f652f27533e2ab9d665ab8615c6b3bb1b6dcd067
 }
 
 .footer {
@@ -337,26 +324,20 @@
   .new-issue-img {
     width: 80%;
     margin: 0% 0% 1% 6%;
-    max-height:40rem;
+    max-height: 40rem;
   }
-<<<<<<< HEAD
   .new-issue-img img {
     height: 70vh;
     width: 50%;
     margin: auto;
-=======
-  .new-issue-img img{
-    width:100%;
-    max-height:40rem;
->>>>>>> f652f27533e2ab9d665ab8615c6b3bb1b6dcd067
   }
   .new-issue-container label {
     font-size: 16px;
   }
 }
-@media(max-width: 900px) {
-  .new-issue-img img{
-    height:50vh;
+@media (max-width: 900px) {
+  .new-issue-img img {
+    height: 50vh;
   }
 }
 /* LANDINGSECTION CSS */
