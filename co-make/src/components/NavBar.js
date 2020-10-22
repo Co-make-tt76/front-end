@@ -33,7 +33,7 @@ function NavBar(props) {
 	}
 
 	return (
-		<div>
+		<div className='navbar-container'>
 			<Navbar color="dark" dark expand="md">
 			<NavbarBrand href="/">CO|MAKE</NavbarBrand>
           <NavbarToggler onClick={toggle} />
@@ -47,6 +47,9 @@ function NavBar(props) {
 					</NavItem>
 					<NavItem>
 						<NavLink tag={Link} to='/addIssue'>Add Issue</NavLink>
+					</NavItem>
+					<NavItem>
+						<NavLink tag={Link} to='/about'>About</NavLink>
 					</NavItem>
 					<NavItem>
 						<NavLink tag={Link} to='/' onClick={handleSignOut}>Sign Out</NavLink>

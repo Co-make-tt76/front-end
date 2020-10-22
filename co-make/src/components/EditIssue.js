@@ -13,7 +13,9 @@ import { axiosWithAuth } from '../utils/axiosWithAuth';
 const schema = yup.object().shape({
 });
 function EditIssue(props){
+
     const { deleteIssue, editIssue } = props;
+
     const { id } = useParams()
     const { push } = useHistory()
     const { register, handleSubmit, errors, reset } = useForm({ 

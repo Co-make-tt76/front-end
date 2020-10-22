@@ -24,7 +24,7 @@ export default function LandingSection() {
 			 className='btns'
 			 buttonstyle='btn--primary'
 			 buttonsize='btn--large'
-			 onClick={() => '/about'}
+			 onClick={() => push('/about')}
 		  >
 			 How We Do It  <i className='fa fa-address-card' aria-hidden="true"/>
 		  </Button>
