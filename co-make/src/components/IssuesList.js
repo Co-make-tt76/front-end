@@ -12,11 +12,14 @@ function IssuesList(props) {
    }, [fetchIssues]);
 
    return (
-      <div className='issues-list-container'>
+      <div className='component-container'>
+         <div className='issues-list-container'>
          {issues.map((issue) => (
                <Issue issue={issue} key={issue.id}/>
          ))}
+         </div>
       </div>
+      
    )
 }
 
