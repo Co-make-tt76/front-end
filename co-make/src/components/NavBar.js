@@ -29,7 +29,7 @@ export default function NavBar() {
 	return (
 		<div>
 			<Navbar color="dark" dark expand="md">
-			<NavbarBrand href="/issues">CO|MAKE</NavbarBrand>
+			<NavbarBrand href="/">CO|MAKE</NavbarBrand>
           <NavbarToggler onClick={toggle} />
           <Collapse isOpen={isOpen} navbar>
           <Nav className="ml-auto" navbar>
