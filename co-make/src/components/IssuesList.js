@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import Issue from './Issue';
 import { connect } from 'react-redux';
 import { fetchIssues } from '../store/actions/issuesActions';

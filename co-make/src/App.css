@@ -101,17 +101,9 @@
 }
 
 #delete-btn:hover {
-  background-color: red;
-  color: black;
-  border: 2px solid #44494d;
-  font-weight: bolder;
-  padding: 24px 18px;
-  width: 90%;
+  background-color: white;
+  color: #343a40;
   border: 2px solid #343a40;
-  border-radius: 8px;
-  box-shadow: 2px 10px 14px rgba(0, 0, 0, 0.6);
-  display: flex;
-  flex-wrap: wrap;
 }
 
 .issue-container {
@@ -299,20 +291,24 @@
     flex-direction:column-reverse;
   }
   .new-issue-img {
-    width: 100%;
+    width: 80%;
+    margin: 0% 0% 1% 6%;
+    max-height:40rem;
   }
   .new-issue-img img{
-    height:70vh;
-    width: 50%;
-    margin: auto;
+    width:100%;
+    max-height:40rem;
   }
   .new-issue-container label{
     font-size:16px;
   }
 }
+@media(max-width: 900px) {
+  .new-issue-img img{
+    height:50vh;
+  }
+}
 /* LANDINGSECTION CSS */
-
-
 video {
   object-fit: cover;
   width: 100%;
