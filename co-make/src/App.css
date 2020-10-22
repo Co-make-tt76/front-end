@@ -62,7 +62,7 @@
 #add-issue-submit-btn {
   background-color: #44494d;
   color: white;
-  margin: .25% auto;
+  margin: 0.25% auto;
   width: 90%;
 }
 #add-issue-submit-btn:hover {
@@ -75,7 +75,7 @@
   background-color: #a8b5c0;
   color: white;
   border: none;
-  margin: .25% auto;
+  margin: 0.25% auto;
   width: 90%;
 }
 
@@ -97,7 +97,7 @@
   background-color: #ed9595;
   color: white;
   border: none;
-  margin: .25% auto;
+  margin: 0.25% auto;
   width: 90%;
 }
 
@@ -134,7 +134,7 @@
 }
 
 .issues-list-container {
-  background-color: rgba(255,255,255,0.7);
+  background-color: rgba(255, 255, 255, 0.7);
   margin: 0 auto;
   padding: 24px 18px;
   width: 95%;
@@ -192,6 +192,37 @@
 
 .comment-group {
   margin: 16px 0 40px;
+}
+
+.about-page {
+  font-family: "Roboto", sans-serif;
+}
+
+.team-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin: 50px;
+}
+
+#team-card {
+  margin: 20px 0 20px 0;
+  height: 400px;
+}
+
+#team-card:hover {
+  box-shadow: 5px 5px 5px gray;
+}
+#hire-me {
+  margin: 12px;
+  width: 50%;
+}
+
+.team-container img {
+  border-radius: 100%;
+  width: 75%;
+  align-self: center;
+  margin: 10px;
 }
 
 .footer {
@@ -257,7 +288,6 @@
 
 /* LANDINGSECTION CSS */
 
-
 video {
   object-fit: cover;
   width: 100%;
@@ -288,8 +318,8 @@ video {
   margin-top: 8px;
   color: #fff;
   font-size: 32px;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
-    'Lucida Sans', Arial, sans-serif;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
 }
 
 .landing-btns {

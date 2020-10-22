@@ -1,4 +1,9 @@
 import React from 'react';
+import Josh from '../assets/josh.jpg'
+import Wes from '../assets/wes.jpg'
+import Trevor from '../assets/trevor.jpg'
+import Seth from '../assets/seth.jpg'
+
 import {Jumbotron, 
     Button, 
     Card, 
@@ -7,6 +12,7 @@ import {Jumbotron,
     CardTitle, 
     CardSubtitle,} 
     from 'reactstrap'
+    
 
 
     
@@ -14,13 +20,13 @@ import {Jumbotron,
         const {member}= props
         return (
           <div>
-            <Card>
+            <Card id='team-card'>
               <CardImg top width="100%" src={member.img} alt="CO|MAKE Team Member" />
               <CardBody>
                 <CardTitle><b>{member.name}</b></CardTitle>
                 <CardSubtitle>{member.role}</CardSubtitle>
                 
-                <Button onClick={() => window.open(member.url, "_blank")}>Hire Me</Button>
+                <Button id='hire-me' onClick={() => window.open(member.url, "_blank")}>Hire Me</Button>
               </CardBody>
             </Card>
           </div>
@@ -30,27 +36,28 @@ import {Jumbotron,
 
 
 const About = () => {
-    const teamMembers = [{ 
-        name: 'Wesley White', 
-        img: 'img', 
-        url: 'https://github.com/Wesley-Ryan', 
-        role: 'Frontend React'
-    }, 
-    { 
-        name: 'Seth Bradshaw', 
-        img: 'img', 
-        url: 'https://github.com/seth-bradshaw', 
-        role: 'Frontend React'
+    const teamMembers = [
+        { 
+            name: 'Seth Bradshaw', 
+            img: Seth, 
+            url: 'https://github.com/seth-bradshaw', 
+            role: 'Frontend React'
+        }, 
+        { 
+            name: 'Wesley White', 
+            img: Wes, 
+            url: 'https://github.com/Wesley-Ryan', 
+            role: 'Frontend React'
     }, 
     { 
         name: 'Trevor Armes', 
-        img: 'img', 
+        img: Trevor, 
         url: 'https://github.com/tarmes', 
         role: 'Frontend React II'
     }, 
     { 
         name: 'Josh Glantz', 
-        img: 'img', 
+        img: Josh, 
         url: 'https://github.com/Jahteo', 
         role: 'Backend NodeJS'
     }]
@@ -59,7 +66,7 @@ const About = () => {
 
     return ( 
     
-    <div> 
+    <div className='about-page'> 
         <Jumbotron>
         <h1 className="display-3">Co|Make</h1>
         <p className="lead">
@@ -79,10 +86,12 @@ const About = () => {
       </Jumbotron>
 
       <h2>Meet The Team </h2>
+      <div className='team-container'>
 
-      {teamMembers.map((member, idx) => { 
-          return <MemberCard member={member} key={idx} />
-      })}
+        {teamMembers.map((member, idx) => { 
+            return <MemberCard member={member} key={idx} />
+        })}
+      </div>
 
       
     </div>);
