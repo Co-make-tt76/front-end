@@ -1,33 +1,39 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { ErrorMessage } from '@hookform/error-message';
-import {Form, Button, Label, Input, FormGroup} from 'reactstrap'
+import {Form, Button, Label, Input, FormGroup} from 'reactstrap';
+import { connect } from 'react-redux';
+import { setLoggedIn } from '../store/actions/userActions';
 import axios from 'axios';
 
-const loginPost = (user) => { 
-  axios.post('https://comake-backend-tt76.herokuapp.com/auth/login', user)
-  .then((res) => { 
-    window.localStorage.setItem('token', res.data.token)
-    
-  })
-  .catch((error) => { 
-    console.log("There was an error logging into the server", error)
-  })
-}
+function Login(props) {
 
-export default function Login() {
-   const { register, handleSubmit, errors, reset } = useForm({ 
+    const { setLoggedIn } = props;
+
+    const { register, handleSubmit, errors, reset } = useForm({ 
       mode: "onBlur",
       defaultValues: { 
-         email: "", 
-         password:""
+          email: "", 
+          password:""
       } 
     });
-  const onSubmit = (data) => { 
-    
-    loginPost(data)
-    reset()
-  }
+
+    const loginPost = (user) => { 
+      axios.post('https://comake-backend-tt76.herokuapp.com/auth/login', user)
+      .then((res) => { 
+        window.localStorage.setItem('token', res.data.token)
+        alert("You've successfully signed in!!")
+        setLoggedIn()        
+      })
+      .catch((error) => { 
+        console.log("There was an error logging into the server", error)
+      })
+    }
+
+    const onSubmit = (data) => {     
+      loginPost(data)
+      reset()
+    }
   //console.log("MY ERRORS FROM LOG FORM=>", errors)
     
 
@@ -67,3 +73,5 @@ export default function Login() {
     
    )
 }
+
+export default connect(null, { setLoggedIn })(Login);

@@ -20,6 +20,7 @@ export default function Register() {
   const postNewUser = (newUser) => { 
     axios.post("https://comake-backend-tt76.herokuapp.com/auth/register", newUser)
     .then((response) => { 
+      alert("You've successfully registered, Welcome!!")
       console.log(response)
     })
     .catch((error) => { 
