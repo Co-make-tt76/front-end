@@ -294,12 +294,7 @@
   #bold {
     margin: 0;
   }
-  .navbar-container {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-  }
+
 
 }
 
@@ -397,4 +392,11 @@ video {
 .component-container {
   box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.2);
   padding: 32px 0;
+}
+
+.navbar-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
 }
