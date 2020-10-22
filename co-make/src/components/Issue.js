@@ -6,6 +6,7 @@ import {
 import { connect } from 'react-redux';
 import { upvoteIssue as upvote} from '../store/actions/issuesActions'
 import { useHistory } from 'react-router-dom'
+import Comment from './Comment'
 
 function Issue(props) {
 
@@ -38,7 +39,7 @@ function Issue(props) {
                   <Button className='upvote-button' onClick={() => upvote(issue)}>Upvote</Button>
                   <p>{issue.upvotes}</p>
                </div>
-              <Button className='comment-button' onClick={() => push(`/addComment/${issue.id}`)}>Comment</Button>
+               <Comment id={issue}></Comment>
             </CardBody>
          </Card>
       </div>

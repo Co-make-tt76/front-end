@@ -7,8 +7,10 @@ import LoginRegisterTab from './components/LoginRegisterTab'
 import AddNewIssue from './components/AddNewIssue';
 import EditIssue from './components/EditIssue'
 import Footer from './components/Footer'
-import LandingSection from './components/LandingSection';
 import About from './components/About';
+import Comment from './components/Comment'
+import LandingSection from './components/LandingSection'
+
 
 
 
@@ -24,11 +26,11 @@ function App() {
 					<Route path='/addIssue' component={AddNewIssue} />
 					<Route path='/editIssue/:id' component={EditIssue} />
 					<Route path='/about' component={About} />
+				<Route path='/addComment/:id' component={Comment} />
+
 			</div>
 			<Footer />
-		</div>
-
-		
+		</div>		
 	);
 }
 

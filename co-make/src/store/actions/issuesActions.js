@@ -1,7 +1,8 @@
 import { axiosWithAuth } from '../../utils/axiosWithAuth';
 import { FETCH_ISSUES_START, FETCH_ISSUES_SUCCESS, 
    UPVOTE_ISSUE_START, UPVOTE_ISSUE_SUCCESS, 
-   DELETE_ISSUE_START, DELETE_ISSUE_SUCCESS 
+   DELETE_ISSUE_START, DELETE_ISSUE_SUCCESS,
+   EDIT_ISSUE_START, EDIT_ISSUE_SUCCESS 
 } from '../variables';
 
 export const fetchIssues = () => (dispatch) => {
@@ -14,6 +15,18 @@ export const fetchIssues = () => (dispatch) => {
       .catch(err => {
          console.log('RESPONSEERROR', err)
       })
+}
+
+export const editIssue = (replacedIssue) => (dispatch) => {
+   dispatch({ type: EDIT_ISSUE_START })
+   console.log('EDITISSUE HAS BEGUN')
+   axiosWithAuth()
+      .put(`/issues/${replacedIssue.id}`, replacedIssue )
+      .then(res => {
+         console.log('THIS IS THE REDUX EDIT', res)
+         dispatch({ type: EDIT_ISSUE_SUCCESS })
+      })
+      .catch(err => console.log('REDUX ERRORRRRRRRRRR', err))
 }
 
 export const upvoteIssue = (issue) => (dispatch) => {
