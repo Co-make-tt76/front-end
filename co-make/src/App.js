@@ -8,6 +8,7 @@ import AddNewIssue from './components/AddNewIssue';
 import EditIssue from './components/EditIssue'
 import Footer from './components/Footer'
 <<<<<<< HEAD
+<<<<<<< HEAD
 import Comment from './components/Comment'
 import LandingSection from './components/LandingSection'
 =======
@@ -15,6 +16,10 @@ import LandingSection from './components/LandingSection';
 >>>>>>> 99e41d34e12ba14dece382722bf84d7192c8d6d0
 
 
+=======
+import Comment from './components/Comment'
+import LandingSection from './components/LandingSection';
+>>>>>>> 9e66dd3e47b2acd814c6c0e2dbee70b30a2975c1
 
 function App() {
 	return (
@@ -36,12 +41,15 @@ function App() {
 					<Route path='/register' component={() => <LoginRegisterTab tab={'1'} /> } />
 					<Route path='/addIssue' component={AddNewIssue} />
 					<Route path='/editIssue/:id' component={EditIssue} />
+<<<<<<< HEAD
 >>>>>>> 99e41d34e12ba14dece382722bf84d7192c8d6d0
+=======
+					<Route path='/addComment/:id' component={Comment} />
+				</Switch>
+>>>>>>> 9e66dd3e47b2acd814c6c0e2dbee70b30a2975c1
 			</div>
 			<Footer />
 		</div>
-
-		
 	);
 }
 
