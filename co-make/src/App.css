@@ -1,5 +1,5 @@
-*{
-  box-sizing:border-box;
+* {
+  box-sizing: border-box;
 }
 .App {
   text-align: center;
@@ -65,7 +65,7 @@
 #add-issue-submit-btn {
   background-color: #44494d;
   color: white;
-  margin: .25% auto;
+  margin: 0.25% auto;
   width: 90%;
 }
 #add-issue-submit-btn:hover {
@@ -78,7 +78,7 @@
   background-color: #a8b5c0;
   color: white;
   border: none;
-  margin: .25% auto;
+  margin: 0.25% auto;
   width: 90%;
 }
 
@@ -88,15 +88,15 @@
   border: 2px solid #44494d;
 }
 
-.disappear{
-  display:none;
+.disappear {
+  display: none;
 }
 
 #delete-btn {
   background-color: #ed9595;
   color: white;
   border: none;
-  margin: .25% auto;
+  margin: 0.25% auto;
   width: 90%;
 }
 
@@ -109,14 +109,14 @@
 .issue-container {
   width: 45%;
   margin: 24px 2.5%;
-  display:flex;
+  display: flex;
 }
 
 .card {
   width: 100%;
 }
 
-.card-body{
+.card-body {
   height: 100%;
 }
 
@@ -132,7 +132,7 @@
 }
 
 .issues-list-container {
-  background-color: rgba(255,255,255,0.7);
+  background-color: rgba(255, 255, 255, 0.7);
   margin: 0 auto;
   padding: 24px 18px;
   width: 95%;
@@ -192,13 +192,44 @@
   margin: 16px 0 40px;
 }
 
-#comment-submit-btn{
+.about-page {
+  font-family: "Roboto", sans-serif;
+}
+
+.team-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin: 50px;
+}
+
+#team-card {
+  margin: 20px 0 20px 0;
+  height: 400px;
+}
+
+#team-card:hover {
+  box-shadow: 5px 5px 5px gray;
+}
+#hire-me {
+  margin: 12px;
+  width: 50%;
+}
+
+.team-container img {
+  border-radius: 100%;
+  width: 75%;
+  align-self: center;
+  margin: 10px;
+}
+
+#comment-submit-btn {
   bottom: 10px;
   position: absolute;
   left: 60%;
 }
 
-#comment-cancel-btn{
+#comment-cancel-btn {
   bottom: 10px;
   position: absolute;
   left: 80%;
@@ -266,46 +297,47 @@
 }
 
 /** making newIssue responsive **/
-@media(max-width: 1400px) {
-  .new-issue-container{
-    width:90%;
+@media (max-width: 1400px) {
+  .new-issue-container {
+    width: 90%;
   }
-  .new-issue-container label{
-    font-size:16px;
-  }
-}
-@media(max-width: 1200px) {
-  .new-issue-container{
-    width:98%;
-  }
-  .new-issue-container label{
-    font-size:15px;
+  .new-issue-container label {
+    font-size: 16px;
   }
 }
-@media(max-width: 1000px) {
-  .new-issue-container{
-    width:90%;
+@media (max-width: 1200px) {
+  .new-issue-container {
+    width: 98%;
   }
-  .new-issue-form-img-parent{
-    display:flex;
-    flex-direction:column-reverse;
+  .new-issue-container label {
+    font-size: 15px;
+  }
+}
+@media (max-width: 1000px) {
+  .new-issue-container {
+    width: 90%;
+  }
+  .new-issue-form-img-parent {
+    display: flex;
+    flex-direction: column-reverse;
   }
   .new-issue-img {
     width: 80%;
     margin: 0% 0% 1% 6%;
-    max-height:40rem;
+    max-height: 40rem;
   }
-  .new-issue-img img{
-    width:100%;
-    max-height:40rem;
+  .new-issue-img img {
+    height: 70vh;
+    width: 50%;
+    margin: auto;
   }
-  .new-issue-container label{
-    font-size:16px;
+  .new-issue-container label {
+    font-size: 16px;
   }
 }
-@media(max-width: 900px) {
-  .new-issue-img img{
-    height:50vh;
+@media (max-width: 900px) {
+  .new-issue-img img {
+    height: 50vh;
   }
 }
 /* LANDINGSECTION CSS */
@@ -339,8 +371,8 @@ video {
   margin-top: 8px;
   color: #fff;
   font-size: 32px;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
-    'Lucida Sans', Arial, sans-serif;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
 }
 
 .landing-btns {
