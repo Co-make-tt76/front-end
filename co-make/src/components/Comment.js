@@ -40,6 +40,7 @@ export default function Comment(props){
         postIssue(comment)
         setAddComment(!addComment)
         console.log(comment)
+        
     }
 
     return (
