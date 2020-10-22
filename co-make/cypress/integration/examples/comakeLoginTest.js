@@ -7,6 +7,10 @@ describe("CO|MAKE App", () => {
     const emailInput = () => cy.get('[name=email]')
     const passwordInput = () => cy.get('[name=password]')
     const signInBTN = () => cy.get('.btn-primary')
+    const addIssueBTN = () => cy.get('.nav-link')
+    .contains('Add Issue')
+
+
 
     it('opens login form', () => { 
     loginBTN().should('exist')
@@ -24,6 +28,11 @@ describe("CO|MAKE App", () => {
         passwordInput().last().type('password')
         signInBTN().last().click()
     
+        })
+
+        it('Can add a new issue', () => { 
+            addIssueBTN().should('exist')
+            addIssueBTN().click()
         })
 
 })
