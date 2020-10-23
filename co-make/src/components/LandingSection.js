@@ -8,7 +8,7 @@ export default function LandingSection() {
 
 	return (
 		<div className='landing-container'>
-		<video src='/videos/video-1hd.mp4' autoPlay loop muted poster='/videos/img.jpg' />
+		<video src='/videos/video-1hd.mp4' autoPlay loop muted poster='/videos/img.jpg' playsinline="true" disablePictureInPicture="true" />
 		<h1>CO|MAKE</h1>
 		<p>Assist your community.</p>
 		<div className='landing-btns'>
