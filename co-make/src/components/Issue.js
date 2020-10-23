@@ -17,9 +17,9 @@ function Issue(props) {
       <div className='issue-container'>
          <Card>
             <CardBody className='card-body'>
-               <CardTitle className=" mb-3" tag="h3">Incident: {issue.title}</CardTitle>
+               <CardTitle className=" mb-3" tag="h3">{issue.title}</CardTitle>
                <CardText className=' mb-4'>Description: {issue.description}</CardText>
-               <CardText>Location: {issue.street_address}, {issue.city}, {issue.state} {issue.zip_code}</CardText>
+               <CardText>{issue.street_address}, {issue.city}, {issue.state} {issue.zip_code}</CardText>
                <CardImg
                   alt="nope"
                   src="https://source.unsplash.com/600x400/?construction,signs"
@@ -36,7 +36,7 @@ function Issue(props) {
                { isLoggedIn ? <Button className='edit-button' onClick={() => push(`/editIssue/${issue.id}`)}>Edit</Button> : null}
                <Button className='upvote-button' onClick={() => upvote(issue)}>Upvote</Button>
                { isLoggedIn ? <Comment id={issue}></Comment> : null }
-               
+               <h6 className='upvotes'><i className='fas fa-heart' aria-hidden="true"/> {issue.upvotes}</h6>
             </CardBody>
          </Card>
       </div>
