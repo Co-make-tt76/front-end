@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import { Switch, Route } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import NavBar from './components/NavBar';
 import IssuesList from './components/IssuesList';
 import LoginRegisterTab from './components/LoginRegisterTab'
@@ -10,6 +10,7 @@ import Footer from './components/Footer'
 import About from './components/About';
 import Comment from './components/Comment'
 import LandingSection from './components/LandingSection'
+import PrivateRoute from './utils/PrivateRoute';
 
 
 
@@ -24,7 +25,7 @@ function App() {
 					<Route path="/login" component={() => <LoginRegisterTab tab={'2'} />} />
 					<Route path='/register' component={() => <LoginRegisterTab tab={'1'} /> } />
 					<Route path='/addIssue' component={AddNewIssue} />
-					<Route path='/editIssue/:id' component={EditIssue} />
+					<PrivateRoute path='/editIssue/:id' component={EditIssue} />
 					<Route path='/about' component={About} />
 					<Route path='/addComment/:id' component={Comment} />
 			</div>

@@ -1,14 +1,13 @@
-import React, { useEffect, useState } from 'react';
-import { Col, Row, Button, Form, FormGroup, Label, Input } from 'reactstrap';
+import React, { useState } from 'react';
+import { Col, Row, Button, FormGroup, Label, Input } from 'reactstrap';
 import { ErrorMessage } from '@hookform/error-message';
-import { useForm, Controller } from 'react-hook-form'
-import { useParams, useHistory } from 'react-router-dom'
-import axios from 'axios'
+import { useForm } from 'react-hook-form'
+import { useHistory } from 'react-router-dom'
 import {axiosWithAuth} from '../utils/axiosWithAuth'
 
 export default function Comment(props){
     const [addComment, setAddComment] = useState(false);
-    const {id, counter} = props;
+    const {id} = props;
     const { push } = useHistory();
 
     const { register, handleSubmit, errors} = useForm({ 
@@ -25,6 +24,7 @@ export default function Comment(props){
             .post(`https://comake-backend-tt76.herokuapp.com/issues/comment`, comment)
             .then(res => {
                 console.log(res)
+                push('/')
             })
             .catch(err => {
                 console.log(err)

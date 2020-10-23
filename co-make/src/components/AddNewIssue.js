@@ -2,14 +2,13 @@ import React from 'react';
 import { Col, Row, Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import { ErrorMessage } from '@hookform/error-message';
 import { useForm } from 'react-hook-form'
-import axios from 'axios'
 import { useHistory } from 'react-router-dom'
 import {axiosWithAuth} from '../utils/axiosWithAuth'
 
 
 export default function AddNewIssue(){
     const { push } = useHistory()
-    const { register, handleSubmit, errors, reset } = useForm({ 
+    const { register, handleSubmit, errors } = useForm({ 
         mode: "onBlur",
         defaultValues: { 
             author_id: 0,

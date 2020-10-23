@@ -6,7 +6,6 @@ import { useParams, useHistory } from 'react-router-dom'
 import { connect } from 'react-redux';
 import { deleteIssue } from '../store/actions/issuesActions';
 import { editIssue } from '../store/actions/issuesActions';
-import axios from 'axios'
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
 import { axiosWithAuth } from '../utils/axiosWithAuth';
@@ -53,15 +52,7 @@ function EditIssue(props){
     useEffect(() => {
         getFormData()
     }, [id])
-    const putIssue = (editedIssue) => {
-        axios.put(`https://comake-backend-tt76.herokuapp.com/issues/${id}`, editedIssue)
-      .then(res => {
-        console.log('result from API', res)
-      })
-      .catch(err => {
-        console.log(err)
-      })
-    }
+ 
     const onSubmit = (editedIssue) => { 
         console.log(editedIssue)
         const replacedIssue = { ...editedIssue, id: id}

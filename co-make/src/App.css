@@ -110,7 +110,8 @@
   width: 45%;
   margin: 24px 2.5%;
   display: flex;
-}
+  color: #333a40
+;}
 
 .card {
   width: 100%;
@@ -164,16 +165,10 @@
   text-decoration: underline;
 }
 
-.upvote-container p {
-  position: absolute;
-  bottom: 0;
-  left: 17%;
-}
-
 .upvote-button {
   position: absolute;
   bottom: 10px;
-  left: 2%;
+  left: 44%;
 }
 
 .edit-button {
@@ -183,9 +178,9 @@
 }
 
 .comment-button {
-  bottom: 10px;
   position: absolute;
-  left: 28%;
+  bottom: 10px;
+  left: 2%
 }
 
 .comment-group {
@@ -274,30 +269,6 @@
   border-bottom: 1px solid #c2cbd2;
 }
 
-/*****  Mobile view *****/
-@media only screen and (max-width: 500px) {
-  .tabbed-form-container {
-    width: 300px;
-  }
-  .footer {
-    flex-direction: column;
-  }
-  .footer-icons {
-    width: 100%;
-  }
-
-  .footer-text {
-    width: 50%;
-    margin: 5px 0 0 0;
-  }
-
-  #bold {
-    margin: 0;
-  }
-
-
-}
-
 /** making newIssue responsive **/
 @media (max-width: 1400px) {
   .new-issue-container {
@@ -313,6 +284,11 @@
   }
   .new-issue-container label {
     font-size: 15px;
+  }
+  .upvote-button {
+    position: absolute;
+    bottom: 10px;
+    left: 42%;
   }
 }
 @media (max-width: 1000px) {
@@ -336,12 +312,84 @@
   .new-issue-container label {
     font-size: 16px;
   }
+  .upvote-button {
+    position: absolute;
+    bottom: 10px;
+    left: 41%;
+  }
+  .landing-container > h1 {
+    font-size: 70px;
+    margin-top: -150px;
+  }
 }
 @media (max-width: 900px) {
   .new-issue-img img {
     height: 50vh;
   }
+  .upvote-button {
+    position: absolute;
+    bottom: 10px;
+    left: 39%;
+  }
 }
+@media (max-width: 800px) {
+  .landing-container > h1 {
+    font-size: 50px;
+    margin-top: -100px;
+  }
+
+  .landing-container > p {
+    font-size: 30px;
+  }
+
+  .btn-mobile {
+    display: block;
+    text-decoration: none;
+  }
+
+  .btns {
+    width: 100%;
+  }
+
+  .issue-container {
+    width: 95%;
+    margin: 24px 2.5%;
+    display: flex;
+  }
+  .upvote-button {
+    position: absolute;
+    bottom: 10px;
+    left: 44%;
+  }
+}
+
+/*****  Mobile view *****/
+@media only screen and (max-width: 600px) {
+  .tabbed-form-container {
+    width: 300px;
+  }
+  .footer {
+    flex-direction: column;
+  }
+  .footer-icons {
+    width: 100%;
+  }
+
+  .footer-text {
+    width: 50%;
+    margin: 5px 0 0 0;
+  }
+
+  #bold {
+    margin: 0;
+  }
+  .upvote-button {
+    position: absolute;
+    bottom: 10px;
+    left: 42%;
+  }
+}
+
 /* LANDINGSECTION CSS */
 video {
   object-fit: cover;
@@ -401,3 +449,14 @@ video {
   right: 0;
   z-index: 10;
 }
+
+.upvotes {
+  position: absolute;
+  top: 10px;
+  left: 2%;
+}
+
+.fa-heart {
+  color: #333a40;
+}
+
