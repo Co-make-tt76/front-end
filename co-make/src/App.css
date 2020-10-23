@@ -110,7 +110,8 @@
   width: 45%;
   margin: 24px 2.5%;
   display: flex;
-}
+  color: #333a40
+;}
 
 .card {
   width: 100%;
@@ -453,5 +454,9 @@ video {
   position: absolute;
   top: 10px;
   left: 2%;
+}
+
+.fa-heart {
+  color: #333a40;
 }
 
