@@ -34,12 +34,9 @@ function Issue(props) {
                   ))}
                </ListGroup>
                { isLoggedIn ? <Button className='edit-button' onClick={() => push(`/editIssue/${issue.id}`)}>Edit</Button> : null}
+               <Button className='upvote-button' onClick={() => upvote(issue)}>Upvote</Button>
+               { isLoggedIn ? <Comment id={issue}></Comment> : null }
                
-               <div className='upvote-container'>
-                  <Button className='upvote-button' onClick={() => upvote(issue)}>Upvote</Button>
-                  <p>{issue.upvotes}</p>
-               </div>
-               <Comment id={issue}></Comment>
             </CardBody>
          </Card>
       </div>
